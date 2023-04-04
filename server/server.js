@@ -81,6 +81,52 @@ app.post("/register", signupValidation, (req, res, next) => {
     }
   );
 });
+//JWT Login
+app.post("/login", loginValidation, (req, res, next) => {
+  console.log(req)
+  
+  dbConn.query(
+    `SELECT * FROM users1 WHERE email = ${dbConn.escape(req.body.email)};`,
+    (err, result) => {
+      console.log(result);
+      // user does not exists
+      if (err) {
+        throw err;
+        return res.status(400).send({
+          msg: err,
+        });
+      }
+      // if (!result) {
+      //   return res.status(401).send({
+      //     msg: "Email or password is incorrect!",
+      //   });
+      // }
+      // check password
+      console.log(req.body.password, result[0]["password"])
+          if (req.body.password === result[0]["password"]) {
+            const token = jwt.sign(
+              { id: result[0].id },
+              "the-super-strong-secrect",
+              { expiresIn: "1h" }
+            );
+            result[0].token = token;
+            dbConn.query(
+              `UPDATE users1 SET token_S = now() WHERE id = '${result[0].id}'`
+            );
+            return res.status(200).send({
+              msg: "Logged in!",
+              token,
+              user: result[0],
+            });
+          }
+          return res.status(401).send({
+            msg: "Username or password is incorrect!",
+          });`
+          `
+        }
+      );
+    }
+  );
 
 
 // set port
