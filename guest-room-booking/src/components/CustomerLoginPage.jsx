@@ -7,7 +7,6 @@ const CustomerLoginPage = () => {
   return (
     <>
       <Background />
-
       <div className='Card'>
         <div className='Card_header'>
           <div className='Card-text-A'>
@@ -63,17 +62,17 @@ const CustomerLoginPage = () => {
             </form>
           </div>
           <div className="left">
-            <h1>Welcome Back!</h1>
-            <p>to continue please login with your personal account information</p>
-            <span style={{ padding: "20px 0" }}>Don't have a account?</span>
+          <h1>New to the Website!</h1>
+          <p> Signup to Create New Account</p>
+          <span style={{ padding: "20px 0" }}>Click the Button Below</span>
 
             <button>
-              {/* <NavLink
+              <Link
               to="/register"
               style={{ color: "inherit", textDecoration: "none" }}
-            > */}
+            >
               Sign Up
-              {/* </NavLink> */}
+              </Link>
             </button>
           </div>
         </div>

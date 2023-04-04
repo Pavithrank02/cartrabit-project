@@ -37,7 +37,7 @@ const AdminLoginPage = () => {
                 margin: "5px"
               }}
               type="text"
-              placeholder="Username"
+              placeholder="Email"
               id="username"
             // onChange={handleChange}
             />
@@ -63,9 +63,9 @@ const AdminLoginPage = () => {
           </form>
         </div>
         <div className="left">
-          <h1>Welcome Back!</h1>
-          <p>to continue please login with your personal account information</p>
-          <span style={{ padding: "20px 0" }}>Don't have a account?</span>
+          <h1>New to the Website!</h1>
+          <p> Signup to Create New Account</p>
+          <span style={{ padding: "20px 0" }}>Click the Button Below</span>
 
           <button>
             {/* <NavLink

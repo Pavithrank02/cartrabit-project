@@ -25,14 +25,7 @@
   margin: 2px;
   padding: 5px;
   cursor: pointer;
-}
-.Card-text-A::after{
-  font-size: large;
-  font-weight: 600;
-  margin: 2px;
-  padding: 5px;
-  cursor: pointer;
-  border-bottom: 5px solid rgb(93, 21, 160);
+
 }
 .Card-text-C{
   font-size: large;
@@ -40,6 +33,23 @@
   margin: 2px;
   padding: 5px;
   cursor: pointer;
+
+}
+.Card-text-A:active{
+  font-size: large;
+  font-weight: 600;
+  margin: 2px;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 5px solid rgb(93, 21, 160);
+}
+.Card-text-C::after{
+  font-size: large;
+  font-weight: 600;
+  margin: 2px;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 5px solid rgb(93, 21, 160);
   
 }
 .Card_body {

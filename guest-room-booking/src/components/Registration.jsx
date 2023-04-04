@@ -27,7 +27,7 @@ const Registration = () => {
                   borderRadius: "5px",
                 }}
                 type="text"
-                placeholder="Username"
+                placeholder="Customer Name"
                 id="username"
               // onChange={handleChange}
               />
