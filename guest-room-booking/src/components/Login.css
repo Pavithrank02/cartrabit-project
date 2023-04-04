@@ -1,10 +1,11 @@
 .Card{
   display: flex;
+  flex-direction: column;
   position: absolute;
   top: 15vh;
-  left: 35vw;
+  left: 30vw;
   height: 70vh;
-  width: 30vw;
+  width: 43vw;
   background-color: rgb(248, 248, 248);
   border-radius: 10px;
   box-shadow: 3px 3px rgb(216, 211, 211);
@@ -24,6 +25,13 @@
   margin: 2px;
   padding: 5px;
   cursor: pointer;
+}
+.Card-text-A::after{
+  font-size: large;
+  font-weight: 600;
+  margin: 2px;
+  padding: 5px;
+  cursor: pointer;
   border-bottom: 5px solid rgb(93, 21, 160);
 }
 .Card-text-C{
@@ -33,4 +41,88 @@
   padding: 5px;
   cursor: pointer;
   
+}
+.Card_body {
+  display: flex;
+  width: 40vw;
+  height: 50vh; 
+  top: 25vh;
+  left: 50vw;
+}
+
+.left {
+  background-color: #431ccfc2;
+  width: 70%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  margin-left: 40px;
+}
+
+.left h1 {
+  font-weight: bold;
+}
+
+.left p {
+  font-weight: 300;
+}
+
+.left button {
+  width: 100%;
+  padding: 15px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 25px;
+  width: 100%;
+}
+
+.right h1 {
+  color: #431ccfc2;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.right p {
+  font-weight: 300;
+  margin: 15px 0 20px 0;
+}
+
+Form {
+  width: 100%;
+}
+
+.right button {
+  background-color: #431ccfc2;
+  width: 50%;
+  margin-left: 30px;
+  margin-top: 10px;
+  color: white;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: 20px;
+  border: 1px solid #431ccfc2;
+  outline: none;
+  transition: all 0.4s ease;
+}
+
+.right button:hover {
+  background-color: #fff;
+  color: #431ccfc2;
+  border: 1px solid #431ccfc2;
 }
