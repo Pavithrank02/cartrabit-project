@@ -22,7 +22,7 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var sql = "CREATE TABLE Customer (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), email VARCHAR(100), password VARCHAR(20), phone_No VARCHAR(15), UNIQUE (email))";
+  var sql = "CREATE TABLE House_Owner (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), email VARCHAR(100), password VARCHAR(20), phone_No VARCHAR(15), UNIQUE (email))";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table created");
