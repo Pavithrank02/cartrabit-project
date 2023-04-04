@@ -4,30 +4,30 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  // database: "mydb3"
+  database: "mydb"
 });
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  con.query("CREATE DATABASE mydb", function (err, result) {
-    if (err) throw err;
-    console.log("Database created");
-  });
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+//   con.query("CREATE DATABASE mydb", function (err, result) {
+//     if (err) throw err;
+//     console.log("Database created");
+//   });
+// });
 // con.connect(function(err) {
 //   if (err) throw err;
 //   console.log("Connected!");
 // });
 
-// con.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected!");
-//   var sql = "CREATE TABLE login (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), UNIQUE (email))";
-//   con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     console.log("Table created");
-//   });
-// });
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  var sql = "CREATE TABLE Customer (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), email VARCHAR(100), password VARCHAR(20), phone_No VARCHAR(15), UNIQUE (email))";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table created");
+  });
+});
 
 // con.connect(function(err) {
 //   if (err) throw err;
