@@ -2,8 +2,8 @@
 import './App.css';
 import Home from './View/Home';
 import { Routes, Route } from 'react-router-dom';
-import CustomerLoginPage from './components/CustomerLoginPage';
-import Registration from './components/Registration';
+import CustomerLoginPage from './components/Login/CustomerLoginPage';
+import Registration from './components/Registration/Registration';
 
 function App() {
   return (

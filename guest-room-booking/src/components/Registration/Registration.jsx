@@ -1,7 +1,7 @@
 import React from 'react'
 import './Registration.css'
 import { Link } from 'react-router-dom'
-import Background from './Background'
+import Background from '../Background'
 
 const Registration = () => {
   return (
@@ -10,7 +10,7 @@ const Registration = () => {
 
       <div className="mainContainer">
         <div className="contentArea">
-          <div className="right">
+          <div className="rightSide">
             <h1>Create an Account!</h1>
             <p>
               Create your own personal <br /> account with your personal details
@@ -112,7 +112,7 @@ const Registration = () => {
               {/* {error && <span>{error.message}</span>} */}
             </form>
           </div>
-          <div className="left">
+          <div className="leftSide">
             <h1>Hello There!</h1>
             <p>Create your own personal account carefully</p>
             <span style={{ padding: "20px 0" }}>Already have a account?</span>

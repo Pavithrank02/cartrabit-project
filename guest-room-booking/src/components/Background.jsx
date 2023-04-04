@@ -3,7 +3,7 @@ import img from '../assets/image/wave.png'
 
 const Background = () => {
   return (
-    <div className='background'>
+    <div>
     <img src={img} width="100%" alt="bg" />
   </div>
   )

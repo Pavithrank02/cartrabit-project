@@ -1,8 +1,9 @@
 import React from 'react'
+import './CustomerBooking.css'
 
 const CustomerBooking = () => {
   return (
-    <div>
+    <div className='background'>
       CustomerBooking
     </div>
   )

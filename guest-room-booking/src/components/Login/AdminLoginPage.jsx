@@ -1,13 +1,12 @@
 import React from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
-import Background from './Background'
+import Background from '../Background'
 
 const AdminLoginPage = () => {
   return (
     <>
     <Background />
-
     <div className='Card'>
       <div className='Card_header'>
         <div className='Card-text-A'>
@@ -28,13 +27,13 @@ const AdminLoginPage = () => {
           <form>
             <input
               style={{
-                width: "100%",
+                width: "80%",
                 padding: "15px",
                 border: "none",
                 outline: "none",
                 backgroundColor: "#ddd",
                 borderRadius: "5px",
-                margin: "5px"
+                margin: "1px"
               }}
               type="text"
               placeholder="Email"
@@ -43,13 +42,13 @@ const AdminLoginPage = () => {
             />
             <input
               style={{
-                width: "100%",
+                width: "80%",
                 padding: "15px",
                 border: "none",
                 outline: "none",
                 backgroundColor: "#ddd",
                 borderRadius: "5px",
-                margin: "5px"
+                margin: "1px"
               }}
               type="password"
               placeholder="Password"

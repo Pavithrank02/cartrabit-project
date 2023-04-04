@@ -1,7 +1,7 @@
 import React from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
-import Background from './Background'
+import Background from '../Background'
 
 const CustomerLoginPage = () => {
   return (
@@ -27,28 +27,28 @@ const CustomerLoginPage = () => {
             <form>
               <input
                 style={{
-                  width: "100%",
+                  width: "80%",
                   padding: "15px",
                   border: "none",
                   outline: "none",
                   backgroundColor: "#ddd",
                   borderRadius: "5px",
-                  margin: "5px"
+                  margin: "1px"
                 }}
                 type="text"
-                placeholder="Username"
-                id="username"
+                placeholder="Email"
+                id="email"
               // onChange={handleChange}
               />
               <input
                 style={{
-                  width: "100%",
+                  width: "80%",
                   padding: "15px",
                   border: "none",
                   outline: "none",
                   backgroundColor: "#ddd",
                   borderRadius: "5px",
-                  margin: "5px"
+                  margin: "1px"
                 }}
                 type="password"
                 placeholder="Password"
