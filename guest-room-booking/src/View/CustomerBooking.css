@@ -61,6 +61,10 @@
   padding: 5px;
   height: 8vh;
   width: 70vw;
-  top: 23vh;
+  top: 25vh;
   left: 10rem;
+}
+.date{
+  position: absolute;
+  left: 25vh;
 }

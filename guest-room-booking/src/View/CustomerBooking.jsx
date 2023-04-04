@@ -1,6 +1,7 @@
 import React from 'react'
 import img from '../assets/image/0x0.jpg'
 import './CustomerBooking.css'
+import DropDown from '../components/DropDown'
 
 const CustomerBooking = () => {
   return (
@@ -12,8 +13,10 @@ const CustomerBooking = () => {
           <img src={img} className='booking-card-img' alt="room" />
         </div>
         <div className='rooms-selector'>
-          
-          
+          <DropDown />
+        </div>
+        <div className='rooms'>
+        <input type='text' />
         </div>
 
       </div>

@@ -1,0 +1,52 @@
+.card p{
+  margin-top: -1px;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 7rem;
+
+}
+.dropdown {
+  position: relative;
+  margin-top: -12px;
+
+}
+
+.menu {
+  position: absolute;
+  list-style-type: none;
+  margin: 0px 0;
+  padding: 0;
+  border: 1px solid grey;
+  width: 150px;
+}
+
+.menu > li {
+  margin: 0;
+
+  background-color: white;
+}
+
+.menu > li:hover {
+  background-color: lightgray;
+}
+
+.menu > li > button {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.field{
+  width: 20rem;
+  height: 1.5rem;
+  text-align: center;
+  font-size: larger;
+  border-color: inherit;
+}

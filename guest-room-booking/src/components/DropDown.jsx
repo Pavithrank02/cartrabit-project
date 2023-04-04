@@ -1,37 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './DropDown.css'
 
 const DropDown = () => {
-  const handleMenuOne = () => {
+  const [owner, setOwner] = useState("John")
+  const handleName = () => {
+    // setOwner(e.target.value)
     console.log('clicked one');
   };
 
-  const handleMenuTwo = () => {
-    console.log('clicked two');
-  };
 
   return (
+    
     <Dropdown
-      trigger={<button>Dropdown</button>}
+    
+      trigger={<input type='text' className='field' value={owner}/>}
       menu={[
-        <button onClick={handleMenuOne}>Menu 1</button>,
-        <button onClick={handleMenuTwo}>Menu 2</button>,
+        <button onClick={(e) => handleName(setOwner('John'))} >John</button>,
+        <button onClick={(e) => handleName(setOwner('Andrew'))} >Andrew</button>,
       ]}
     />
   );
 };
 
 const Dropdown = ({ trigger, menu }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(!open);
   };
 
   return (
+    <div className='card'>
+    <p>Owner Name</p>
     <div className="dropdown">
       {React.cloneElement(trigger, {
         onClick: handleOpen,
       })}
+      
       {open ? (
         <ul className="menu">
           {menu.map((menuItem, index) => (
@@ -46,6 +51,7 @@ const Dropdown = ({ trigger, menu }) => {
           ))}
         </ul>
       ) : null}
+    </div>
     </div>
   );
 }
