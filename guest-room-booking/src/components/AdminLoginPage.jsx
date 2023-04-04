@@ -1,43 +1,24 @@
 import React from 'react'
 import './Login.css'
-import { NavLink, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { Link } from 'react-router-dom'
+import Background from './Background'
 
-const Login = () => {
-  // const [credentials, setCredentials] = useState({
-  //   username: undefined,
-  //   password: undefined,
-  // });
-
-
-  //   Handle Change Function
-  // const handleChange = (e) => {
-  //   setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  // };
-
-  //   Handle Click Function
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   // dispatch({ type: "LOGIN_START" });
-  //   // try {
-  //   //   const res = await axios.post(
-  //   //     "https://sheikh-booking-backend.onrender.com/api/auth/login",
-  //   //     credentials
-  //   //   );
-  //   //   dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-  //   //   navigate("/");
-  //   // } catch (error) {
-  //   //   dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
-  //   // }
-  // };
+const AdminLoginPage = () => {
   return (
+    <>
+    <Background />
+
     <div className='Card'>
       <div className='Card_header'>
         <div className='Card-text-A'>
-          Admin Login
+          <Link to='/'>
+            Admin Login
+          </Link>
         </div>
         <div className='Card-text-C'>
-          Customer Login
+          <Link to='/customer'>
+            Customer Login
+          </Link>
         </div>
       </div>
       <div className='Card_body'>
@@ -88,16 +69,18 @@ const Login = () => {
 
           <button>
             {/* <NavLink
-              to="/register"
-              style={{ color: "inherit", textDecoration: "none" }}
-            > */}
+            to="/register"
+            style={{ color: "inherit", textDecoration: "none" }}
+          > */}
             Sign Up
             {/* </NavLink> */}
           </button>
         </div>
       </div>
     </div>
+  </>
+    
   )
 }
 
-export default Login
+export default AdminLoginPage
