@@ -1,3 +1,4 @@
+
 var express = require("express");
 const path = require('path');
 var app = express();
@@ -39,12 +40,14 @@ dbConn.connect();
 
 //Register User
 app.post("/register", signupValidation, (req, res, next) => {
+  // console.log(req)
   dbConn.query(
-    `SELECT * FROM customers WHERE LOWER(email) = LOWER(${dbConn.escape(
+    `SELECT * FROM customer WHERE LOWER(email) = LOWER(${dbConn.escape(
       req.body.email
     )});`,
     (err, result) => {
       if (result.length) {
+        console.log(result)
         return res.status(409).send({
           msg: "This user is already in use!",
         });
@@ -58,7 +61,7 @@ app.post("/register", signupValidation, (req, res, next) => {
           } else {
             // has hashed pw => add to database
             dbConn.query(
-              `INSERT INTO users1 (name, email, password) VALUES ('${
+              `INSERT INTO customer (name, email, password) VALUES ('${
                 req.body.name
               }', ${dbConn.escape(req.body.email)}, ${dbConn.escape(
                 req.body.password
