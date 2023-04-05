@@ -1,0 +1,12 @@
+.rooms-selector1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: rgb(245, 245, 245);
+  border: 10px solid rgba(25, 25, 230, 0.767);
+  padding: 5px;
+  height: 8vh;
+  width: 70vw;
+  border-radius: 1rem;
+  z-index: 100;
+}

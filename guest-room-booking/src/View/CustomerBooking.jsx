@@ -2,15 +2,21 @@ import React from 'react'
 import img from '../assets/image/0x0.jpg'
 import './CustomerBooking.css'
 import CalenderComponent from '../components/CalenderComponent'
+import Header from '../components/Header'
 
 const CustomerBooking = () => {
   return (
     <div className='background'>
       <div className='booking-card'>
+        <div className='booking-card-head'>
+          <Header />
+        </div>
         <div className='booking-card-header'>
-          <h1>Book Your Stay with Rooms</h1>
-          <p>Over 20 Rooms are Available for now</p>
-          <img src={img} className='booking-card-img' alt="room" />
+          <div>
+            <h1>Book Your Stay with Rooms</h1>
+            <p>Over 20 Rooms are Available for now</p>
+            <img src={img} className='booking-card-img' alt="room" />
+          </div>
         </div>
         <div className='rooms-selector'>
           <div className='frame'>
@@ -50,6 +56,7 @@ const CustomerBooking = () => {
         <div className='calendar'>
           <CalenderComponent />
         </div>
+
       </div>
     </div>
   )
