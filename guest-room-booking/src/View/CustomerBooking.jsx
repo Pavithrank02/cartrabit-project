@@ -1,7 +1,7 @@
 import React from 'react'
 import img from '../assets/image/0x0.jpg'
+import ad from '../assets/image/Capture.JPG'
 import './CustomerBooking.css'
-import CalenderComponent from '../components/CalenderComponent'
 import Header from '../components/Header'
 
 const CustomerBooking = () => {
@@ -12,7 +12,7 @@ const CustomerBooking = () => {
           <Header />
         </div>
         <div className='booking-card-header'>
-          <div>
+          <div className='contents'>
             <h1>Book Your Stay with Rooms</h1>
             <p>Over 20 Rooms are Available for now</p>
             <img src={img} className='booking-card-img' alt="room" />
@@ -52,10 +52,16 @@ const CustomerBooking = () => {
               <option value="Andrew">2</option>
             </select>
           </div>
+          <div className='frame4'>
+            <button>Search</button>
+          </div>
         </div>
-        <div className='calendar'>
+        <div className='ad'>
+          <img src={ad} alt='ad' width={1400}/>
+        </div>
+        {/* <div className='calendar'>
           <CalenderComponent />
-        </div>
+        </div> */}
 
       </div>
     </div>

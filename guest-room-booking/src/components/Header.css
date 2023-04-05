@@ -1,12 +1,43 @@
 .rooms-selector1{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  background-color: rgb(245, 245, 245);
-  border: 10px solid rgba(25, 25, 230, 0.767);
+  justify-content: space-between;
+  align-items: center;
   padding: 5px;
-  height: 8vh;
-  width: 70vw;
-  border-radius: 1rem;
+  margin-top: 2px;
+  margin-left: 5px;
+  height: 5vh;
+  width: 88vw;
   z-index: 100;
+}
+.Logo{
+  font-size: x-large;
+  font-weight: 800;
+
+}
+.search{
+  align-items: center;
+}
+.search input{
+  width: 300px;
+  height: 3.5vh;
+}
+.search button{
+  margin-top: 5px;
+  height: 33px;
+  padding: 5px;
+  width: 40px;
+}
+.icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+  right: 0;
+
+}
+.icons p{
+  margin-left: 10px;
+  font-size: x-large;
 }
