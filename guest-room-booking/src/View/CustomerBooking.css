@@ -61,10 +61,28 @@
   padding: 5px;
   height: 8vh;
   width: 70vw;
+  border-radius: 1rem;
   top: 25vh;
   left: 10rem;
 }
 .date{
   position: absolute;
   left: 25vh;
+}
+.frame{
+  position: absolute;
+  top: 1vh;
+  height: 7vh;
+  width: 22vw;
+  border: 2px solid ;
+  border-color: rgba(0, 0, 255, 0.37);
+}
+.frame2{
+  position: absolute;
+  left: 33vw;
+  top: 26.18vh;
+  height: 7vh;
+  width: 22vw;
+  border: 2px solid ;
+  border-color: rgba(0, 0, 255, 0.37);
 }

@@ -13,10 +13,14 @@ const CustomerBooking = () => {
           <img src={img} className='booking-card-img' alt="room" />
         </div>
         <div className='rooms-selector'>
-          <DropDown />
+          <div className='frame'>
+            <DropDown />
+          </div>
         </div>
-        <div className='rooms'>
-        <input type='text' />
+        <div className='frame2'>
+          <div className='rooms'>
+            <input type='text' />
+          </div>
         </div>
 
       </div>
