@@ -4,6 +4,70 @@ import { Link } from 'react-router-dom'
 import Background from '../Background'
 
 const Registration = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  // States for checking the errors
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [data, setData] = useState("");
+  const [file, setFile] = useState("");
+  const [address, setAddress] = useState("");
+  const [gender, setGender] = useState("Male");
+  // useEffect(() => {
+  //   fetchApi();
+  //   console.log(data);
+  // }, [data]);
+  // const fetchApi = async () => {
+  //   const response = await fetch("http://127.0.0.1:3000/login");
+  //   const json = await response.json();
+  //   setData(json);
+  //   console.log(json)
+  // };
+  const errors = {
+    uname: "invalid username",
+    pass: "invalid password",
+  };
+
+  // Handling the name change
+  const handleName = (e) => {
+    setName(e.target.value);
+    setData(e.target.value);
+  };
+
+  // Handling the email change
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    setSubmitted(false);
+  };
+
+  // Handling the password change
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    setSubmitted(false);
+  };
+  const handleAddress = (e) => {
+    setAddress(e.target.value);
+    setSubmitted(false);
+  };
+  const handlePhone = (e) => {
+    setPhone(e.target.value);
+    setSubmitted(false);
+  };
+
+  const handleRadio = (event) => {
+    setGender(event.target.value);
+    console.log(event.target.value);
+  };
+const handleInputChange = (e) => {
+  setFile(e.target.files)
+
+}
   return (
     <>
       <Background />
@@ -29,7 +93,7 @@ const Registration = () => {
                 type="text"
                 placeholder="Customer Name"
                 id="username"
-              // onChange={handleChange}
+                onChange={handleName}
               />
               <input
                 style={{
@@ -43,7 +107,7 @@ const Registration = () => {
                 type="email"
                 placeholder="Email"
                 id="email"
-              // onChange={handleChange}
+                onChange={handleEmail}
               />
 
               <input
@@ -58,7 +122,7 @@ const Registration = () => {
                 type="text"
                 placeholder="Phone"
                 id="phone"
-              // onChange={handleChange}
+                onChange={handlePhone}
               />
 
               <input
@@ -73,7 +137,7 @@ const Registration = () => {
                 type="text"
                 placeholder="City"
                 id="city"
-              // onChange={handleChange}
+                onChange={handleChange}
               />
 
               <input
@@ -88,7 +152,7 @@ const Registration = () => {
                 type="text"
                 placeholder="Country"
                 id="country"
-              // onChange={handleChange}
+                onChange={handleChange}
               />
 
               <input
@@ -103,7 +167,7 @@ const Registration = () => {
                 type="password"
                 placeholder="Password"
                 id="password"
-              // onChange={handleChange}
+                onChange={handlePassword}
               />
 
               <button >
