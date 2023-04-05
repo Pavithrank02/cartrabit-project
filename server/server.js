@@ -39,7 +39,54 @@ var dbConn = mysql.createConnection({
 dbConn.connect();
 
 //Register User
-app.post("/register", signupValidation, (req, res, next) => {
+app.post("/customer-register", signupValidation, (req, res, next) => {
+  // console.log(req)
+  dbConn.query(
+    `SELECT * FROM customer WHERE LOWER(email) = LOWER(${dbConn.escape(
+      req.body.email
+    )});`,
+    (err, result) => {
+      if (result.length) {
+        console.log(result)
+        return res.status(409).send({
+          msg: "This user is already in use!",
+        });
+      } else {
+        // username is available
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
+          if (err) {
+            return res.status(500).send({
+              msg: err,
+            });
+          } else {
+            // has hashed pw => add to database
+            dbConn.query(
+              `INSERT INTO customer (name, email, password) VALUES ('${
+                req.body.name
+              }', ${dbConn.escape(req.body.email)}, ${dbConn.escape(
+                req.body.password
+              )})`,
+              (err, result) => {
+                if (err) {
+                  throw err;
+                  return res.status(400).send({
+                    msg: err,
+                  });
+                }
+                return res.status(201).send({
+                  msg: "The user has been registerd with us!",
+                });
+              }
+            );
+          }
+        });
+      }
+    }
+  );
+});
+
+//Register Owner
+app.post("/owner-register", signupValidation, (req, res, next) => {
   // console.log(req)
   dbConn.query(
     `SELECT * FROM customer WHERE LOWER(email) = LOWER(${dbConn.escape(
