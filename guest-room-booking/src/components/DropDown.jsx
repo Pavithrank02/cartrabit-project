@@ -12,7 +12,6 @@ const DropDown = () => {
   return (
     
     <Dropdown
-    
       trigger={<input type='text' className='field' value={owner}/>}
       menu={[
         <button onClick={(e) => handleName(setOwner('John'))} >John</button>,

@@ -17,7 +17,7 @@
 .booking-card-header {
   position: relative;
   text-align: center;
-  color: white;
+  color: rgba(78, 18, 218, 0.747);
   
 }
 
@@ -55,9 +55,12 @@
   filter: brightness(50%);
 }
 .rooms-selector{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   background-color: rgb(245, 245, 245);
   position: absolute;
-  border: 2px solid rgba(25, 25, 230, 0.767);
+  border: 10px solid rgba(25, 25, 230, 0.767);
   padding: 5px;
   height: 8vh;
   width: 70vw;
@@ -70,19 +73,78 @@
   left: 25vh;
 }
 .frame{
-  position: absolute;
-  top: 1vh;
   height: 7vh;
   width: 22vw;
   border: 2px solid ;
   border-color: rgba(0, 0, 255, 0.37);
 }
 .frame2{
-  position: absolute;
-  left: 33vw;
-  top: 26.18vh;
+  display: flex;
+  flex-direction: row;
   height: 7vh;
   width: 22vw;
   border: 2px solid ;
   border-color: rgba(0, 0, 255, 0.37);
+}
+#field{
+  width: 20rem;
+  height: 1.4rem;
+  margin-left: 10px;
+  margin-top: -15px;
+  text-align: center;
+  font-size: larger;
+  border-color: inherit;
+}
+.frame p{
+  
+  margin-top: -1px;
+  margin-bottom: 10px;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 7rem;
+
+}
+.frame2 p{
+  margin-top: -1px;
+  margin-bottom: 10px;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 3rem;
+
+}
+.calendar{
+  position: absolute;
+  top: 35vh;
+  right: 0vh;
+
+}
+/* .container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+} */
+#field1 {
+  width: 10rem;
+  height: 1.4rem;
+  margin-left: 10px;
+  margin-top: -15px;
+  text-align: center;
+  font-size: larger;
+  border-color: inherit;
+}
+.frame3{
+  height: 7vh;
+  width: 22vw;
+  border: 2px solid ;
+  border-color: rgba(0, 0, 255, 0.37);
+}
+.frame3 p{
+  margin-top: -1px;
+  margin-bottom: 10px;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 8rem;
+
 }

@@ -50,3 +50,11 @@
   font-size: larger;
   border-color: inherit;
 }
+.field::before {
+  position: absolute;
+  content: " \2193";
+  top: 0px;
+  right: -8px;
+  height: 20px;
+  width: 20px;
+}

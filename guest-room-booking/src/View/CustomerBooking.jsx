@@ -1,7 +1,7 @@
 import React from 'react'
 import img from '../assets/image/0x0.jpg'
 import './CustomerBooking.css'
-import DropDown from '../components/DropDown'
+import CalenderComponent from '../components/CalenderComponent'
 
 const CustomerBooking = () => {
   return (
@@ -14,15 +14,42 @@ const CustomerBooking = () => {
         </div>
         <div className='rooms-selector'>
           <div className='frame'>
-            <DropDown />
+            <p>Owner Name</p>
+            <select id="field" name="Owners">
+              <option value="John">John</option>
+              <option value="Andrew">Andrew</option>
+            </select>
+          </div>
+          <div className='frame2'>
+            <div className='container'>
+              <p>Adults</p>
+              <select id="field1" name="Owners">
+                <option value="John">1</option>
+                <option value="Andrew">2</option>
+                <option value="Andrew">3</option>
+              </select>
+            </div>
+            <div className='container'>
+              <p>Childrens</p>
+              <select id="field1" name="Owners">
+                <option value="John">1</option>
+                <option value="Andrew">2</option>
+              </select>
+            </div>
+          </div>
+          <div className='frame3'>
+            <p>Rooms</p>
+            <select id="field" name="Owners">
+              <option value="John">1</option>
+              <option value="Andrew">2</option>
+              <option value="John">1</option>
+              <option value="Andrew">2</option>
+            </select>
           </div>
         </div>
-        <div className='frame2'>
-          <div className='rooms'>
-            <input type='text' />
-          </div>
+        <div className='calendar'>
+          <CalenderComponent />
         </div>
-
       </div>
     </div>
   )
