@@ -134,9 +134,8 @@ app.post("/owner-register", signupValidation, (req, res, next) => {
 //JWT Login
 app.post("/login", loginValidation, (req, res, next) => {
   console.log(req)
-  
   dbConn.query(
-    `SELECT * FROM users1 WHERE email = ${dbConn.escape(req.body.email)};`,
+    `SELECT * FROM customer WHERE email = ${dbConn.escape(req.body.email)};`,
     (err, result) => {
       console.log(result);
       // user does not exists
@@ -153,30 +152,30 @@ app.post("/login", loginValidation, (req, res, next) => {
       // }
       // check password
       console.log(req.body.password, result[0]["password"])
-          if (req.body.password === result[0]["password"]) {
-            const token = jwt.sign(
-              { id: result[0].id },
-              "the-super-strong-secrect",
-              { expiresIn: "1h" }
-            );
-            result[0].token = token;
-            dbConn.query(
-              `UPDATE users1 SET token_S = now() WHERE id = '${result[0].id}'`
-            );
-            return res.status(200).send({
-              msg: "Logged in!",
-              token,
-              user: result[0],
-            });
-          }
-          return res.status(401).send({
-            msg: "Username or password is incorrect!",
-          });`
+      if (req.body.password === result[0]["password"]) {
+        const token = jwt.sign(
+          { id: result[0].id },
+          "the-super-strong-secrect",
+          { expiresIn: "1h" }
+        );
+        result[0].token = token;
+        dbConn.query(
+          `UPDATE customer SET token_S = now() WHERE id = '${result[0].id}'`
+        );
+        return res.status(200).send({
+          msg: "Logged in!",
+          token,
+          user: result[0],
+        });
+      }
+      return res.status(401).send({
+        msg: "Username or password is incorrect!",
+      }); `
           `
-        }
-      );
     }
   );
+}
+);
   app.post("/get-user", signupValidation, (req, res, next) => {
     // const token = req.headers.authorization
   
