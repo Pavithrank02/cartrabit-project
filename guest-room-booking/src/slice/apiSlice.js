@@ -12,7 +12,7 @@ export const getFetch = createAsyncThunk("get-users/getFetch", async() =>{
 // console.log("api",FETCH_API)
 export const apiSlice = createSlice({
   name: "api",
-  initialState :  { id: "" , name:"", email:"", password:"", gender: "", phone:"", image:"", address:"", data:[], isLoading: false },
+  initialState :  { id: "" , name:"", email:"", password:"", city: "", phone:"", image:"", country:"", data:[], isLoading: false },
   
   reducers: {
 
@@ -139,19 +139,19 @@ export const apiSlice = createSlice({
             name: state.name,
             email: state.email,
             password : state.password,
-            gender: state.gender,
+            city: state.city,
             phone: state.phone,
             image: state.image,
             address:state.address
         }
         axios
-            .post("http://127.0.0.1:3000/register",  data )
+            .post("http://127.0.0.1:3000/customer_register",  data )
           .then((response) => {
             console.log(response);
             if (response.status === 201) {
                 // console.log(window)
                 alert("user registered successfully!!Login into th user")
-                window.location.href = '/signin'
+                window.location.reload()
               //   setSubmitted(true);
               //   navigate("/signin");
             }

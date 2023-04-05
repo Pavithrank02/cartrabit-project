@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import './Registration.css'
 import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../../slice/apiSlice";
 import Background from '../Background'
 
 const Registration = () => {
@@ -16,9 +19,9 @@ const Registration = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [data, setData] = useState("");
-  const [file, setFile] = useState("");
   const [address, setAddress] = useState("");
-  const [gender, setGender] = useState("Male");
+  const [city, setCity] = useState("");
+
   // useEffect(() => {
   //   fetchApi();
   //   console.log(data);
@@ -55,19 +58,35 @@ const Registration = () => {
     setAddress(e.target.value);
     setSubmitted(false);
   };
+  const handleCity = (e) => {
+    setCity(e.target.value);
+    setSubmitted(false);
+  };
   const handlePhone = (e) => {
     setPhone(e.target.value);
     setSubmitted(false);
   };
 
-  const handleRadio = (event) => {
-    setGender(event.target.value);
-    console.log(event.target.value);
-  };
-const handleInputChange = (e) => {
-  setFile(e.target.files)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name === "" || email === "" || password === "") {
+      setError(true);
+    } else {
+      dispatch(register({
+        name: name,
+        email: email,
+        password: password,
+        city:city,
+        phone: phone,
+        // image: file[0].name,
+        address:address
+        
+      }));
+      setError(false);
 
-}
+    }
+
+  }
   return (
     <>
       <Background />
@@ -91,6 +110,7 @@ const handleInputChange = (e) => {
                   borderRadius: "5px",
                 }}
                 type="text"
+                value={name}
                 placeholder="Customer Name"
                 id="username"
                 onChange={handleName}
@@ -105,6 +125,7 @@ const handleInputChange = (e) => {
                   borderRadius: "5px",
                 }}
                 type="email"
+                value={email}
                 placeholder="Email"
                 id="email"
                 onChange={handleEmail}
@@ -120,6 +141,7 @@ const handleInputChange = (e) => {
                   borderRadius: "5px",
                 }}
                 type="text"
+                value={phone}
                 placeholder="Phone"
                 id="phone"
                 onChange={handlePhone}
@@ -135,9 +157,10 @@ const handleInputChange = (e) => {
                   borderRadius: "5px",
                 }}
                 type="text"
+                value={city}
                 placeholder="City"
                 id="city"
-                onChange={handleChange}
+                onChange={handleCity}
               />
 
               <input
@@ -150,9 +173,10 @@ const handleInputChange = (e) => {
                   borderRadius: "5px",
                 }}
                 type="text"
-                placeholder="Country"
+                value={address}
+                placeholder="Address"
                 id="country"
-                onChange={handleChange}
+                onChange={handleAddress}
               />
 
               <input
@@ -165,12 +189,13 @@ const handleInputChange = (e) => {
                   borderRadius: "5px",
                 }}
                 type="password"
+                value={password}
                 placeholder="Password"
                 id="password"
                 onChange={handlePassword}
               />
 
-              <button >
+              <button onClick={handleSubmit}  type="submit">
                 Sign up
               </button>
               {/* {error && <span>{error.message}</span>} */}
