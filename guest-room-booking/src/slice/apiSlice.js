@@ -295,5 +295,5 @@ export const apiSlice = createSlice({
 // }
 
 
-export const { deleteuser, login, register, updateuser, fetchuser, fethApi } = apiSlice.actions;
+export const { deleteuser, login, register, updateuser, fetchuser, fethApi, roomRegister } = apiSlice.actions;
 export default apiSlice.reducer;
