@@ -36,9 +36,50 @@ const validate = values => {
 const HouseOwnerForm = () => {
 
   const [isChecked, setIsChecked] = useState(false);
+  const [name, setName] = useState("");
+  const [room, setRoom] = useState("");
+  const [house, setHouse] = useState("");
+  const [description, setDescription] = useState("");
+  const [amount, setAmount] = useState("");
+  const [beds, setBeds] = useState("");
+  const [max, setMax] = useState("");
+  const [min, setMin] = useState("");
+  const [size, setFloor] = useState("");
+  const [file, setFile] = useState("");
+
 
   const handleOnChange = () => {
     setIsChecked(!isChecked);
+  };
+  const handleName = (e) => {
+    setName(e.target.value)
+  };
+  const handleRoom = (e) => {
+    setRoom(e.target.value)
+  };
+  const handleDescription = (e) => {
+    setDescription(e.target.value)
+  };
+  const handleAmount = (e) => {
+    setAmount(e.target.value)
+  };
+  const handleBeds = (e) => {
+    setBeds(e.target.value)
+  };
+  const handleHouse = (e) => {
+    setHouse(e.target.value)
+  };
+  const handleMax = (e) => {
+    setMax(e.target.value)
+  };
+  const handleMin = (e) => {
+    setMin(e.target.value)
+  };
+  const handleSize = (e) => {
+    setFloor(e.target.value)
+  };
+  const handleFile = (e) => {
+    setFile(e.target.value)
   };
 
   const formik = useFormik({
@@ -46,8 +87,9 @@ const HouseOwnerForm = () => {
       firstName: '',
       room: '',
       house: '',
-      desciption: '',
-      policies: '',
+      description: '',
+      max: '',
+      min:"",
       beds: '',
       amount: '',
       size:'',
@@ -70,9 +112,9 @@ const HouseOwnerForm = () => {
             id="normal"
             name="firstName"
             type="text"
-            onChange={formik.handleChange}
+            onChange={handleName}
             onBlur={formik.handleBlur}
-            value={formik.values.firstName}
+            value={name}
           />
           {formik.touched.firstName && formik.errors.firstName ? (
             <div>{formik.errors.firstName}</div>
@@ -83,9 +125,9 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
-            onChange={formik.handleChange}
+            onChange={handleRoom}
             onBlur={formik.handleBlur}
-            value={formik.values.room}
+            value={room}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -96,9 +138,9 @@ const HouseOwnerForm = () => {
             id="textarea"
             name="description"
             type="text"
-            onChange={formik.handleChange}
+            onChange={handleDescription}
             onBlur={formik.handleBlur}
-            value={formik.values.desciption}
+            value={description}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -109,9 +151,9 @@ const HouseOwnerForm = () => {
             id="normal"
             name="amount"
             type="text"
-            onChange={formik.handleChange}
+            onChange={handleAmount}
             onBlur={formik.handleBlur}
-            value={formik.values.amount}
+            value={amount}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -121,37 +163,48 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
-            onChange={formik.handleChange}
+            onChange={handleBeds}
             onBlur={formik.handleBlur}
-            value={formik.values.beds}
+            value={beds}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
           ) : null}
         </div>
         <div className='form-container-right'>
-          <label htmlFor="lastName">Policies</label>
+          <label htmlFor="lastName">Maximum Days</label>
           <input
-            id="textarea"
+            id="normal"
             name="lastName"
             type="text"
-            onChange={formik.handleChange}
+            onChange={handleMax}
             onBlur={formik.handleBlur}
-            value={formik.values.policies}
+            value={max}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
           ) : null}
-
+          <label htmlFor="lastName">Minimum Days</label>
+          <input
+            id="normal"
+            name="lastName"
+            type="text"
+            onChange={handleMin}
+            onBlur={formik.handleBlur}
+            value={min}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div>{formik.errors.lastName}</div>
+          ) : null}
 
           <label htmlFor="email">House Number</label>
           <input
             id="normal"
             name="email"
             type="email"
-            onChange={formik.handleChange}
+            onChange={handleHouse}
             onBlur={formik.handleBlur}
-            value={formik.values.house}
+            value={house}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -203,7 +256,7 @@ const HouseOwnerForm = () => {
             type="file"
             className="form-control"
             name="upload_file"
-          // onChange={handleInputChange}
+          onChange={handleFile}
           />
 
           <label className="input-container">Floor Size</label>
@@ -211,8 +264,9 @@ const HouseOwnerForm = () => {
             id='normal'
             // onChange={handleAddress}
             className="input"
-            value={formik.values.size}
+            value={size}
             type="text"
+            onChange={handleSize}
           />
         </div>
       </form>
