@@ -131,6 +131,30 @@ app.post("/owner-register", signupValidation, (req, res, next) => {
     }
   );
 });
+
+//Room registration
+app.post("/room_register", signupValidation, (req, res, next) => {
+  // console.log(req)
+            // has hashed pw => add to database
+            dbConn.query(
+              `INSERT INTO room (room_no, Description, house_owner, beds, amount, houseNo, maxDay, minDay, floor) VALUES ('${req.body.room
+              }', ${dbConn.escape(req.body.description)}, ${dbConn.escape(
+                req.body.houseowner
+              )}, ${dbConn.escape(req.body.beds)}, ${dbConn.escape(req.body.amount)} , ${dbConn.escape(req.body.houseno)}, ${dbConn.escape(req.body.max)}, ${dbConn.escape(req.body.min)}, ${dbConn.escape(req.body.floor)})`,
+              (err, result) => {
+                if (err) {
+                  throw err;
+                  return res.status(400).send({
+                    msg: err,
+                  });
+                }
+                return res.status(201).send({
+                  msg: "The room has been registerd with us!",
+                });
+              }
+            );
+          }
+        );
 //JWT Login
 app.post("/login", loginValidation, (req, res, next) => {
   console.log(req)
