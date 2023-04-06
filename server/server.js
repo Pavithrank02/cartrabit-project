@@ -175,7 +175,7 @@ app.post("/login", loginValidation, (req, res, next) => {
       //   });
       // }
       // check password
-      console.log(req.body.password, result[0]["password"])
+      // console.log(req.body.password, result[0]["password"])
       if (req.body.password === result[0]["password"]) {
         const token = jwt.sign(
           { id: result[0].id },
@@ -200,6 +200,41 @@ app.post("/login", loginValidation, (req, res, next) => {
   );
 }
 );
+
+//delete room
+app.delete("/room/:id", signupValidation, (req, res, next) => {
+  
+  
+  const user_id = req.params.id
+
+  if (
+    !req.headers.authorization ||
+    !req.headers.authorization.startsWith("Bearer") ||
+    !req.headers.authorization.split(" ")[1]
+  ) {
+    return res.status(422).json({
+      message: "Please provide the token",
+    });
+  }
+  const theToken = req.headers.authorization.split(" ")[1];
+  const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+  console.log(decoded)
+  if(theToken){
+    console.log(theToken)
+    dbConn.query(
+      "DELETE FROM customer WHERE id = ?",
+      [user_id],
+      function (error, results, fields) {
+        if (error) throw error;
+        return res.send({
+          error: false,
+          data: results,
+          message: "User has been deleted successfully.",
+        });
+      }
+    );
+  }
+});
   app.post("/get-user", signupValidation, (req, res, next) => {
     // const token = req.headers.authorization
   
@@ -427,39 +462,7 @@ app.post("/login", loginValidation, (req, res, next) => {
   // });
   
   
-  app.delete("/get-users/:id", signupValidation, (req, res, next) => {
   
-  
-    const user_id = req.params.id
-  
-    if (
-      !req.headers.authorization ||
-      !req.headers.authorization.startsWith("Bearer") ||
-      !req.headers.authorization.split(" ")[1]
-    ) {
-      return res.status(422).json({
-        message: "Please provide the token",
-      });
-    }
-    const theToken = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(theToken, "the-super-strong-secrect");
-    console.log(decoded)
-    if(theToken){
-      console.log(theToken)
-      dbConn.query(
-        "DELETE FROM users1 WHERE id = ?",
-        [user_id],
-        function (error, results, fields) {
-          if (error) throw error;
-          return res.send({
-            error: false,
-            data: results,
-            message: "User has been deleted successfully.",
-          });
-        }
-      );
-    }
-  });
   //auth
   app.post("/api", auth, (req, res) => {
     console.log(req.body);
