@@ -92,7 +92,7 @@ const HouseOwnerForm = () => {
     fData.append('image', file);
     try {
       dispatch(fetchuser({
-        data:fData
+        data: fData
       }))
       // console.log("img", fData);
     } catch (ex) {
@@ -109,7 +109,7 @@ const HouseOwnerForm = () => {
       max: max,
       min: min,
       floor: size,
-      
+
     }));
   }
   const formik = useFormik({
@@ -119,10 +119,10 @@ const HouseOwnerForm = () => {
       house: '',
       description: '',
       max: '',
-      min:"",
+      min: "",
       beds: '',
       amount: '',
-      size:'',
+      size: '',
 
 
 
@@ -284,9 +284,10 @@ const HouseOwnerForm = () => {
           <label className="text-white">Select Photos :</label>
           <input
             type="file"
+            multiple='multiple'
             className="form-control"
             name="upload_file"
-          onChange={handleFile}
+            onChange={handleFile}
           />
 
           <label className="input-container">Floor Size</label>

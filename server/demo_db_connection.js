@@ -32,7 +32,7 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var sql = "ALTER TABLE room ADD COLUMN amenities VARCHAR(100) AFTER houseno;";
+  var sql = "ALTER TABLE room MODIFY images varchar(255)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table altered");
