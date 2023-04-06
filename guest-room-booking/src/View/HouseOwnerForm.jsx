@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import './Owner.css'
 
@@ -11,10 +11,16 @@ const validate = values => {
     errors.firstName = 'Must be 15 characters or less';
   }
 
+
   if (!values.lastName) {
     errors.lastName = 'Required';
   } else if (values.lastName.length > 20) {
     errors.lastName = 'Must be 20 characters or less';
+  }
+  if (!values.description) {
+    errors.description = 'Required';
+  } else if (values.description.length < 20) {
+    errors.lastName = 'Must be 20 characters or greater';
   }
 
   if (!values.email) {
@@ -26,13 +32,28 @@ const validate = values => {
   return errors;
 };
 
+
 const HouseOwnerForm = () => {
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   const formik = useFormik({
     initialValues: {
       firstName: '',
-      lastName: '',
-      email: '',
+      room: '',
+      house: '',
+      desciption: '',
+      policies: '',
+      beds: '',
+      amount: '',
+      size:'',
+
+
+
     },
     validate,
     onSubmit: values => {
@@ -46,7 +67,7 @@ const HouseOwnerForm = () => {
         <div className='form-container-left'>
           <label htmlFor="firstName">Owner Name</label>
           <input
-            id="firstName"
+            id="normal"
             name="firstName"
             type="text"
             onChange={formik.handleChange}
@@ -57,14 +78,14 @@ const HouseOwnerForm = () => {
             <div>{formik.errors.firstName}</div>
           ) : null}
 
-          <label htmlFor="lastName">Room Number</label>
+          <label>Room Number</label>
           <input
-            id="lastName"
+            id="normal"
             name="lastName"
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.lastName}
+            value={formik.values.room}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -72,12 +93,12 @@ const HouseOwnerForm = () => {
 
           <label htmlFor="lastName">Description</label>
           <input
-            id="lastName"
-            name="lastName"
+            id="textarea"
+            name="description"
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.lastName}
+            value={formik.values.desciption}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -85,12 +106,24 @@ const HouseOwnerForm = () => {
 
           <label htmlFor="lastName">Room Amount</label>
           <input
-            id="lastName"
+            id="normal"
+            name="amount"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.amount}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div>{formik.errors.lastName}</div>
+          ) : null}
+          <label htmlFor="lastName">No. of Beds</label>
+          <input
+            id="normal"
             name="lastName"
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.lastName}
+            value={formik.values.beds}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -99,12 +132,12 @@ const HouseOwnerForm = () => {
         <div className='form-container-right'>
           <label htmlFor="lastName">Policies</label>
           <input
-            id="lastName"
+            id="textarea"
             name="lastName"
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.lastName}
+            value={formik.values.policies}
           />
           {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -113,18 +146,59 @@ const HouseOwnerForm = () => {
 
           <label htmlFor="email">House Number</label>
           <input
-            id="email"
+            id="normal"
             name="email"
             type="email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.email}
+            value={formik.values.house}
           />
-          {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div>{formik.errors.lastName}</div>
           ) : null}
 
-          <label className="text-white">Select File :</label>
+          <label>Select your desired Amenities:</label>
+          <div className="topping">
+            <input
+              type="checkbox"
+              id="topping"
+              name="topping"
+              value="Paneer"
+              checked={isChecked}
+              onChange={handleOnChange}
+            />
+            TV
+            <input
+              type="checkbox"
+              id="topping"
+              name="topping"
+              value="Paneer"
+              checked={isChecked}
+              onChange={handleOnChange}
+            />
+            WiFi
+            <input
+              type="checkbox"
+              id="topping"
+              name="topping"
+              value="Paneer"
+              checked={isChecked}
+              onChange={handleOnChange}
+            />
+
+            AC
+            <input
+              type="checkbox"
+              id="topping"
+              name="topping"
+              value="Paneer"
+              checked={isChecked}
+              onChange={handleOnChange}
+            />
+            Dinner
+          </div>
+
+          <label className="text-white">Select Photos :</label>
           <input
             type="file"
             className="form-control"
@@ -132,16 +206,17 @@ const HouseOwnerForm = () => {
           // onChange={handleInputChange}
           />
 
-          <label className="input-container">Address</label>
+          <label className="input-container">Floor Size</label>
           <input
+            id='normal'
             // onChange={handleAddress}
             className="input"
-            // value={address}
+            value={formik.values.size}
             type="text"
           />
-        </div> 
-        <button type="submit">Submit</button>
+        </div>
       </form>
+      <button type="submit">Submit</button>
     </div>
   );
 }
