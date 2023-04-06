@@ -37,13 +37,13 @@ export const apiSlice = createSlice({
     fetchuser: (state, action) => {
 
       try {
-        console.log(action)
+        // console.log(action)
         state = action.payload;
         const data = {
 
           image: state.image
         };
-
+        console.log("data",data)
         axios.post(
           "http://127.0.0.1:3000/profile-upload-single", data
 
@@ -196,7 +196,7 @@ export const apiSlice = createSlice({
             if (response.status === 201) {
               // console.log(window)
               alert("user registered successfully!!Login into th user")
-              window.location.reload()
+              // window.location.reload()
               //   setSubmitted(true);
               //   navigate("/signin");
             }

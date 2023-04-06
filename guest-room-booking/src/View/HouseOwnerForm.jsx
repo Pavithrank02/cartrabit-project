@@ -94,7 +94,7 @@ const HouseOwnerForm = () => {
       dispatch(fetchuser({
         data: fData
       }))
-      // console.log("img", fData);
+      console.log("img", fData);
     } catch (ex) {
       console.log(ex);
     }
@@ -104,7 +104,7 @@ const HouseOwnerForm = () => {
       houseowner: houseowner,
       beds: beds,
       amount: amount,
-      image: file[0].name,
+      image: file,
       houseno: house,
       max: max,
       min: min,
