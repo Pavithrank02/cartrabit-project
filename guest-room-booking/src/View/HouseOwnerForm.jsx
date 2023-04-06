@@ -83,13 +83,14 @@ const HouseOwnerForm = () => {
     setFloor(e.target.value)
   };
   const handleFile = (e) => {
+    console.log("files",e.target.files);
     setFile(e.target.files)
   };
 
   const handleSubmit = () => {
-    console.log("sumbit")
+    console.log("file",file);
     const fData = new FormData();
-    fData.append('image', file);
+    fData.append('images', file);
     try {
       dispatch(fetchuser({
         data: fData
@@ -104,7 +105,7 @@ const HouseOwnerForm = () => {
       houseowner: houseowner,
       beds: beds,
       amount: amount,
-      image: file,
+      image: file[0].name,
       houseno: house,
       max: max,
       min: min,
@@ -135,7 +136,7 @@ const HouseOwnerForm = () => {
   return (
     <div className='form_container'>
       <h1>Room House Registration Form</h1>
-      <form className='ownerform'>
+      <form className='ownerform' enctype="multipart/form-data" >
         <div className='form-container-left'>
           <label htmlFor="firstName">Owner Name</label>
           <input
@@ -280,11 +281,12 @@ const HouseOwnerForm = () => {
             />
             Dinner
           </div>
-
+          
           <label className="text-white">Select Photos :</label>
           <input
             type="file"
-            multiple='multiple'
+            accept="image/*"
+            multiple
             className="form-control"
             name="upload_file"
             onChange={handleFile}
