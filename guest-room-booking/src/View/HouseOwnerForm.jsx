@@ -41,104 +41,105 @@ const HouseOwnerForm = () => {
   });
   return (
     <div className='form_container'>
-      <h1>Room Informattion Form</h1>
-
+      <h1>Room House Registration Form</h1>
       <form onSubmit={formik.handleSubmit} className='ownerform'>
-        <label htmlFor="firstName">Owner Name</label>
-        <input
-          id="firstName"
-          name="firstName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.firstName}
-        />
-        {formik.touched.firstName && formik.errors.firstName ? (
-          <div>{formik.errors.firstName}</div>
-        ) : null}
+        <div className='form-container-left'>
+          <label htmlFor="firstName">Owner Name</label>
+          <input
+            id="firstName"
+            name="firstName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+          />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <div>{formik.errors.firstName}</div>
+          ) : null}
 
-        <label htmlFor="lastName">Room Number</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
-        ) : null}
+          <label htmlFor="lastName">Room Number</label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div>{formik.errors.lastName}</div>
+          ) : null}
 
-        <label htmlFor="lastName">Description</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
-        ) : null}
+          <label htmlFor="lastName">Description</label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div>{formik.errors.lastName}</div>
+          ) : null}
 
-        <label htmlFor="lastName">Room Amount</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
-        ) : null}
+          <label htmlFor="lastName">Room Amount</label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div>{formik.errors.lastName}</div>
+          ) : null}
+        </div>
+        <div className='form-container-right'>
+          <label htmlFor="lastName">Policies</label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div>{formik.errors.lastName}</div>
+          ) : null}
 
-        <label htmlFor="lastName">Policies</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
-        ) : null}
 
+          <label htmlFor="email">House Number</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div>{formik.errors.email}</div>
+          ) : null}
 
-        <label htmlFor="email">House Number</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
+          <label className="text-white">Select File :</label>
+          <input
+            type="file"
+            className="form-control"
+            name="upload_file"
+          // onChange={handleInputChange}
+          />
 
-        <label className="text-white">Select File :</label>
-        <input
-          type="file"
-          className="form-control"
-          name="upload_file"
-        // onChange={handleInputChange}
-        />
-
-        <label className="input-container">Address</label>
-        <input
-          // onChange={handleAddress}
-          className="input"
-          // value={address}
-          type="text"
-        />
-
+          <label className="input-container">Address</label>
+          <input
+            // onChange={handleAddress}
+            className="input"
+            // value={address}
+            type="text"
+          />
+        </div> 
         <button type="submit">Submit</button>
       </form>
     </div>

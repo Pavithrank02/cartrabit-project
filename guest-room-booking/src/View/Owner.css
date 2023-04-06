@@ -6,11 +6,10 @@
 }
 .ownerform{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
   background-color: bisque;
-  width: 20vw;
+  width: 50vw;
+  height: 50vh;
   border: 1px solid black;
 }
 .ownerform label{
@@ -18,4 +17,15 @@
 }
 .ownerform h1{
   text-align: center;
+}
+
+.form-container-left{
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+.form-container-right{
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
 }
