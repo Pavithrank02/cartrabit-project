@@ -39,10 +39,7 @@ export const apiSlice = createSlice({
       try {
         console.log(action)
         state = action.payload;
-        const data = {
-
-          image: state.image
-        };
+        const data = state.image
         // console.log("data",data)
         axios.post(
           "http://127.0.0.1:3000/profile-upload-single", data

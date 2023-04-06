@@ -1,0 +1,8 @@
+.roomslist{
+  display: flex;
+  flex-direction: row;
+}
+.RoomContainer{
+  display: flex;
+  flex-direction: column;
+}

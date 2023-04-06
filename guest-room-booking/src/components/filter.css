@@ -1,0 +1,94 @@
+.slidecontainer {
+  width: 20%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+.filter-container{
+  display: flex;
+  background-color: #04AA6D;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 10px;
+  width: 20vw;
+  height: 100vh;
+}
+p{
+  margin-top: -1px;
+  margin-bottom: 20px;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 1rem;
+
+}
+select {
+  width: 20rem;
+  height: 1.4rem;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: larger;
+  border-color: inherit;
+}
