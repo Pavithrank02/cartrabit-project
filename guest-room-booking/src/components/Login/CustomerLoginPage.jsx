@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../slice/apiSlice";
 import './Login.css'
 import { Link } from 'react-router-dom'
 import Background from '../Background'
 
 const CustomerLoginPage = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const controller = new AbortController();
+  const { signal } = controller;
+  const dispatch = useDispatch()
+
+
+  const handleSubmit = (e) => {
+    // Prevent the default submit and page reload
+
+    e.preventDefault();
+
+    dispatch(login({
+      email: email,
+      password: password
+    }))
+
+    setEmail("");
+    setPassword("")
+    // Handle validations
+
+  };
   return (
     <>
       <Background />
@@ -15,9 +41,7 @@ const CustomerLoginPage = () => {
             </Link>
           </div>
           <div className='Card-text-C'>
-            <Link to='/customer'>
               Customer Login
-            </Link>
           </div>
         </div>
         <div className='Card_body'>
@@ -38,7 +62,8 @@ const CustomerLoginPage = () => {
                 type="text"
                 placeholder="Email"
                 id="email"
-              // onChange={handleChange}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 style={{
@@ -53,25 +78,27 @@ const CustomerLoginPage = () => {
                 type="password"
                 placeholder="Password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               // onChange={handleChange}
               />
-              <button >
+              <button type="submit" onClick={handleSubmit}>
                 Login
               </button>
               {/* {error && <span>{error.message}</span>} */}
             </form>
           </div>
           <div className="left">
-          <h1>New to the Website!</h1>
-          <p> Signup to Create New Account</p>
-          <span style={{ padding: "20px 0" }}>Click the Button Below</span>
+            <h1>New to the Website!</h1>
+            <p> Signup to Create New Account</p>
+            <span style={{ padding: "20px 0" }}>Click the Button Below</span>
 
             <button>
               <Link
-              to="/register"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              Sign Up
+                to="/register"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                Sign Up
               </Link>
             </button>
           </div>

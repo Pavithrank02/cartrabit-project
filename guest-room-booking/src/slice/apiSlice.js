@@ -120,7 +120,7 @@ export const apiSlice = createSlice({
           localStorage.setItem("key", response.data.token);
           const token = localStorage.getItem("key");
                     if(token){
-                        window.location.href ='/display'
+                        window.location.href ='/roomlist'
                         // console.log(res.data._token)
                     }else{
                         return false
