@@ -269,7 +269,6 @@ app.get("/get-rooms", signupValidation, (req, res, next) => {
   );
   // }
 });
-
 app.get("/get-room/:id", signupValidation, (req, res, next) => {
   // const token = req.headers.authorization
   const user_id = req.params.id
@@ -297,6 +296,44 @@ app.get("/get-room/:id", signupValidation, (req, res, next) => {
   dbConn.query(
     "SELECT * FROM room WHERE id=?",
     user_id,
+    function (error, results, fields) {
+      // console.log(decoded.name)
+      if (error) throw error;
+      return res.send({ data: results, message: "Users Fetch Successfully." });
+    }
+  );
+}
+  // }
+);
+
+//room information by name
+app.get("/get-rooms/:name", signupValidation, (req, res, next) => {
+  // const token = req.headers.authorization
+  const user_name = req.params.name
+  // console.log(user_id)
+
+  // if (!token) {
+  //   return res.status(403).send("A token is required for retrie");
+  // }
+  // // console.log(req.body)
+
+  // if (
+  //   !req.headers.authorization ||
+  //   !req.headers.authorization.startsWith("Bearer") ||
+  //   !req.headers.authorization.split(" ")[1]
+  // ) {
+  //   return res.status(422).json({
+  //     message: "Please provide the token",
+  //   });
+  // }
+  // const theToken = req.headers.authorization.split(" ")[1];
+  // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+  // console.log(decoded)
+  // if (theToken) {
+  //   console.log(theToken)
+  dbConn.query(
+    "SELECT * FROM room WHERE house_owner=?",
+    user_name,
     function (error, results, fields) {
       // console.log(decoded.name)
       if (error) throw error;
