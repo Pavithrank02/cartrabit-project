@@ -5,8 +5,8 @@
   margin-left: 2rem;
   margin-top: 1rem;
   width: 77.4vw;
-  background-color: azure;
-  border-bottom: 1px solid lightgray;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid lightgray;
 }
 .image-container{
   margin-top: 2px;

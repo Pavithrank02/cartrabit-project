@@ -16,7 +16,7 @@
   width: 25px;
   height: 25px;
   border-radius: 50%; 
-  background: #04AA6D;
+  background: #ffffff;
   cursor: pointer;
 }
 
@@ -29,13 +29,14 @@
 }
 .filter-container{
   display: flex;
-  background-color: #04AA6D;
+  background-color: #ffffff;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   padding-left: 10px;
   width: 20vw;
   height: 100vh;
+  border-right: 2px solid lightgray;
 }
 p{
   margin-top: -1px;

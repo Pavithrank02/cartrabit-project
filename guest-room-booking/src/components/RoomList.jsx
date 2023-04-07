@@ -40,7 +40,7 @@ const RoomList = () => {
               </div>
               <div className="bottom">
               <p>Rs.{e.amount} </p>
-              <h3>₹5548 65% off</h3>
+              <h3>65% off</h3>
               <button>View Details</button>
               <button>Book</button>
               </div>
