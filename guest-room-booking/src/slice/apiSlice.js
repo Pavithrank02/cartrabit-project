@@ -236,6 +236,25 @@ export const apiSlice = createSlice({
         console.log(err.message);
       }
     },
+    getroom: (state, action) => {
+      try {
+        state = action.payload;
+        const data = state.id
+
+
+        axios
+          .get(`http://127.0.0.1:3000/get-room/${data}`)
+          .then((response) => {
+            console.log(response)
+            // alert("room fetched successfull");
+            // window.location.href = '/booking/'
+            // window.location.reload();
+            // Handle response
+          });
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
     updateuser: (state, action) => {
       try {
         state = action.payload;
@@ -293,5 +312,5 @@ export const apiSlice = createSlice({
 // }
 
 
-export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister } = apiSlice.actions;
+export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom } = apiSlice.actions;
 export default apiSlice.reducer;

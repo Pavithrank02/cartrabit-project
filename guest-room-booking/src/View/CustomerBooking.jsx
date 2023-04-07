@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import img from '../assets/image/0x0.jpg'
 import ImageSlider from '../components/imageSlider'
+import { getroom } from '../slice/apiSlice'
 import ad from '../assets/image/Capture.JPG'
 import CalenderComponent from '../components/CalenderComponent'
 import './CustomerBooking.css'
+import { useDispatch } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 
 const CustomerBooking = () => {
+  const Params = useParams()
+  // console.log("params",Params)
+  const [data, setData] = useState("");
+  // console.log("data", data.data);
+
+  // const {id,house_owner, maxDay, minDay } = data.data[0]
+
+  useEffect(() => {
+
+    fetchApi();
+    // console.log(data)
+  }, []);
+
+  const fetchApi = async () => {
+    const response = await fetch(`http://127.0.0.1:3000/get-room/${Params.id}`);
+    const json = await response.json();
+    setData(json)
+    // console.log(json)
+  };
+
   return (
     <div className='background'>
       <div className='booking-card'>
@@ -22,10 +45,10 @@ const CustomerBooking = () => {
         </div>
         <div className='rooms-selector'>
           <div className='frame'>
-            <p>Owner Name</p>
+            <p>{data && data.data[0].house_owner}</p>
             <select id="field" name="Owners">
-              <option value="John">John</option>
-              <option value="Andrew">Andrew</option>
+              <option value="John">{data && data.data[0].house_owner}</option>
+              {/* <option value="Andrew">Andrew</option> */}
             </select>
           </div>
           <div className='frame2'>

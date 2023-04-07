@@ -23,7 +23,7 @@ const RoomList = () => {
     const response = await fetch("http://127.0.0.1:3000/get-rooms");
     const json = await response.json();
     setData(json)
-    console.log(json)
+    // console.log(json)
   };
 
 
