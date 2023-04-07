@@ -145,7 +145,7 @@ export const apiSlice = createSlice({
             localStorage.setItem("key", response.data.token);
             const token = localStorage.getItem("key");
             if (token) {
-              window.location.href = '/rooms'
+              window.location.href = '/dashboard'
               // console.log(res.data._token)
             } else {
               return false
