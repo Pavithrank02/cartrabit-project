@@ -23,7 +23,7 @@ export const apiSlice = createSlice({
         const data = state.data
 
         axios.post(
-          "http://127.0.0.1:3000/get-users", data
+          "http://127.0.0.1:3000/get-rooms", data
 
         );
         state.data.push(data)
