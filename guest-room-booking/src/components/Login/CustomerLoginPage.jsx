@@ -95,7 +95,7 @@ const CustomerLoginPage = () => {
 
             <button>
               <Link
-                to="/register"
+                to="/customerregister"
                 style={{ color: "inherit", textDecoration: "none" }}
               >
                 Sign Up

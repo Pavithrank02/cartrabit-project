@@ -67,12 +67,12 @@ const AdminLoginPage = () => {
           <span style={{ padding: "20px 0" }}>Click the Button Below</span>
 
           <button>
-            {/* <NavLink
-            to="/register"
+            <Link
+            to="/ownerregister"
             style={{ color: "inherit", textDecoration: "none" }}
-          > */}
+          >
             Sign Up
-            {/* </NavLink> */}
+            </Link>
           </button>
         </div>
       </div>

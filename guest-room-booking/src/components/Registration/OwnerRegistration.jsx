@@ -3,10 +3,10 @@ import './Registration.css'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { register } from "../../slice/apiSlice";
+import { ownerregister, register } from "../../slice/apiSlice";
 import Background from '../Background'
 
-const Registration = () => {
+const OwnerRegistration = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -19,8 +19,6 @@ const Registration = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
   const [data, setData] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
 
   // useEffect(() => {
   //   fetchApi();
@@ -54,14 +52,6 @@ const Registration = () => {
     setPassword(e.target.value);
     setSubmitted(false);
   };
-  const handleAddress = (e) => {
-    setAddress(e.target.value);
-    setSubmitted(false);
-  };
-  const handleCity = (e) => {
-    setCity(e.target.value);
-    setSubmitted(false);
-  };
   const handlePhone = (e) => {
     setPhone(e.target.value);
     setSubmitted(false);
@@ -72,7 +62,7 @@ const Registration = () => {
     if (name === "" || email === "" || password === "") {
       setError(true);
     } else {
-      dispatch(register({
+      dispatch(ownerregister({
         name: name,
         email: email,
         password: password,
@@ -156,38 +146,6 @@ const Registration = () => {
                   backgroundColor: "#ddd",
                   borderRadius: "5px",
                 }}
-                type="text"
-                value={city}
-                placeholder="City"
-                id="city"
-                onChange={handleCity}
-              />
-
-              <input
-                style={{
-                  width: "100%",
-                  padding: "15px",
-                  border: "none",
-                  outline: "none",
-                  backgroundColor: "#ddd",
-                  borderRadius: "5px",
-                }}
-                type="text"
-                value={address}
-                placeholder="Address"
-                id="country"
-                onChange={handleAddress}
-              />
-
-              <input
-                style={{
-                  width: "100%",
-                  padding: "15px",
-                  border: "none",
-                  outline: "none",
-                  backgroundColor: "#ddd",
-                  borderRadius: "5px",
-                }}
                 type="password"
                 value={password}
                 placeholder="Password"
@@ -207,7 +165,7 @@ const Registration = () => {
             <span style={{ padding: "20px 0" }}>Already have a account?</span>
             <button>
               <Link
-                to="/customer"
+                to="/"
                 style={{ color: "inherit", textDecoration: "none" }}
               >
                 Login
@@ -220,4 +178,4 @@ const Registration = () => {
   )
 }
 
-export default Registration
+export default OwnerRegistration

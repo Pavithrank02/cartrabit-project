@@ -158,7 +158,45 @@ export const apiSlice = createSlice({
             if (error.response) {
               // Request made and server responded
               alert(error.response.data.msg);
-              window.location.href = '/signup'
+              window.location.href = '/customer'
+              //   setSubmitted(false);
+              //   navigate("/signup")
+
+              // console.log(error.response.status);
+              // console.log(error.response.headers);
+            }
+          });
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
+    ownerregister: (state, action) => {
+      try {
+        state = action.payload;
+        const data = {
+          name: state.name,
+          email: state.email,
+          password: state.password,
+          phone: state.phone,
+        }
+        axios
+          .post("http://127.0.0.1:3000/owner-register", data)
+          .then((response) => {
+            console.log(response);
+            if (response.status === 201) {
+              // console.log(window)
+              alert("user registered successfully!!Login into th user")
+              window.location.reload()
+              //   setSubmitted(true);
+              //   navigate("/signin");
+            }
+            // Handle response
+          })
+          .catch(function (error) {
+            if (error.response) {
+              // Request made and server responded
+              alert(error.response.data.msg);
+              window.location.href = '/'
               //   setSubmitted(false);
               //   navigate("/signup")
 
@@ -240,8 +278,6 @@ export const apiSlice = createSlice({
       try {
         state = action.payload;
         const data = state.id
-
-
         axios
           .get(`http://127.0.0.1:3000/get-room/${data}`)
           .then((response) => {
@@ -312,5 +348,5 @@ export const apiSlice = createSlice({
 // }
 
 
-export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom } = apiSlice.actions;
+export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom, ownerregister } = apiSlice.actions;
 export default apiSlice.reducer;

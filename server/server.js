@@ -89,7 +89,7 @@ app.post("/customer-register", signupValidation, (req, res, next) => {
 app.post("/owner-register", signupValidation, (req, res, next) => {
   // console.log(req)
   dbConn.query(
-    `SELECT * FROM customer WHERE LOWER(email) = LOWER(${dbConn.escape(
+    `SELECT * FROM house_owner WHERE LOWER(email) = LOWER(${dbConn.escape(
       req.body.email
     )});`,
     (err, result) => {
@@ -108,7 +108,7 @@ app.post("/owner-register", signupValidation, (req, res, next) => {
           } else {
             // has hashed pw => add to database
             dbConn.query(
-              `INSERT INTO customer (name, email, password) VALUES ('${
+              `INSERT INTO house_owner (name, email, password) VALUES ('${
                 req.body.name
               }', ${dbConn.escape(req.body.email)}, ${dbConn.escape(
                 req.body.password
