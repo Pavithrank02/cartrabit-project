@@ -2,3 +2,10 @@
   background-color: beige;
   width: 90vw;
 }
+.room-head{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}

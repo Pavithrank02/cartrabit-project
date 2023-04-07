@@ -1,0 +1,45 @@
+.rooms-selector2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 2px;
+  height: 8vh;
+  width: 100vw;
+  z-index: 100;
+}
+.Logo{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 800;
+
+}
+.search{
+  display: flex;
+  align-items: center;
+  margin-left: 4rem;
+}
+.search input{
+  width: 300px;
+  height: 3.5vh;
+}
+.search button{
+  margin-top: 5px;
+  height: 33px;
+  padding: 5px;
+  width: 40px;
+}
+.icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: left; 
+  align-items: right;
+  right: 0;
+
+}
+.icons p{
+  margin-left: 10px;
+  margin-top: 13px;
+  font-size: x-large;
+}
