@@ -8,11 +8,10 @@ const RoomsView = () => {
   return (
     <div className='RoomContainer'>
       <RoomHeader />
-    <div className='roomslist'>
-      <Filter />
-      <Room />
+      <div className='roomslist'>
+        <Filter />
+        <Room />
       </div>
-
     </div>
   )
 }
