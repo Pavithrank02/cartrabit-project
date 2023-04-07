@@ -1,6 +1,6 @@
 import React from 'react'
 import img from '../assets/image/0x0.jpg'
-import imageSlider from '../components/imageSlider'
+import ImageSlider from '../components/imageSlider'
 import ad from '../assets/image/Capture.JPG'
 import CalenderComponent from '../components/CalenderComponent'
 import './CustomerBooking.css'
@@ -59,7 +59,7 @@ const CustomerBooking = () => {
           </div>
         </div>
         <div className='ad'>
-          <imageSlider />
+          <ImageSlider />
         </div>
         <div className='calendar'>
           <CalenderComponent />
