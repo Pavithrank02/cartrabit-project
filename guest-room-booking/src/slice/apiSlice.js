@@ -16,10 +16,10 @@ export const apiSlice = createSlice({
 
   reducers: {
 
-    fethApi: (state, action) => {
+    fetchApi: (state, action) => {
 
       try {
-        // state = action.payload;
+        state = action.payload;
         const data = state.data
 
         axios.post(
@@ -292,5 +292,5 @@ export const apiSlice = createSlice({
 // }
 
 
-export const { deleteuser, login, register, updateuser, fetchuser, fethApi, roomRegister } = apiSlice.actions;
+export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister } = apiSlice.actions;
 export default apiSlice.reducer;

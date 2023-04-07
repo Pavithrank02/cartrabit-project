@@ -1,4 +1,6 @@
 .roomList-component{
+  display: flex;
+  flex-direction: row;
   height: 40vh;
   margin-left: 2rem;
   margin-top: 1rem;
@@ -13,4 +15,53 @@
 .image-container img{
   height: 250px ;
   width: 500px ;
+}
+.details-container {
+  display: flex;
+  flex-direction: column;
+}
+.details-container p{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.details-container .top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 44vw;
+  margin-left: 1rem;
+
+}
+.details-container .bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 44vw;
+  margin-left: 1rem;
+  margin-top: 5rem;
+
+}
+.details-container .bottom p{
+  font-size: x-large;
+  color: #431ccf;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+.details-container .bottom h3{
+  font-size: large;
+  color: #e72020;
+  align-items: center;
+  margin-top: 2.5rem;
+  margin-left: -7rem;
+}
+.bottom button{
+  padding: 10px;
+  font-weight: 400;
+  color: white;
+  background-color: #431ccf;
+  cursor: pointer;
 }
