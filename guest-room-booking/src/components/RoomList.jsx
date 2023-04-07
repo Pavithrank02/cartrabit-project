@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchApi } from '../slice/apiSlice'
 import { useDispatch } from "react-redux";
 
@@ -7,8 +8,9 @@ import './RoomListComp.css'
 const RoomList = () => {
 
   const [data, setData] = useState("");
+  const Navigate = useNavigate()
 
-  console.log("datas", data.data.map(e => e))
+  // console.log("datas", data.data.map(e => e))
 
   // const dispatch = useDispatch()
 
@@ -48,7 +50,7 @@ const RoomList = () => {
               <div className="bottom">
               <p>Rs.{e.amount} </p>
               <h3>65% off</h3>
-              <button>View Details</button>
+              <button onClick={() => Navigate(`/booking/${e.id}`)}>View Details</button>
               <button>Book</button>
               </div>
             </div>
