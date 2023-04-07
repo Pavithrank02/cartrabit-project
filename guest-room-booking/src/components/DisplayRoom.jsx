@@ -48,6 +48,7 @@ const DisplayRoom = () => {
   const deleteHandle = (e, id) => {
     try {
       const id = e.target.value;
+      console.log("id",id)
       dispatch(
         deleteuser({
           id: id,

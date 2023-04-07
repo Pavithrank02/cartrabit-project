@@ -295,7 +295,7 @@ export const apiSlice = createSlice({
             console.log(response)
             alert("user deleted successfull");
             // window.location.href = '/display'
-            // window.location.reload();
+            window.location.reload();
             // Handle response
           });
       } catch (err) {
