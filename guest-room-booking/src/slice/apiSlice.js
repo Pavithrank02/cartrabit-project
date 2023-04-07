@@ -290,7 +290,7 @@ export const apiSlice = createSlice({
 
 
         axios
-          .delete(`http://127.0.0.1:3000/get-users/${data}`)
+          .delete(`http://127.0.0.1:3000/room/${data}`)
           .then((response) => {
             console.log(response)
             alert("user deleted successfull");
