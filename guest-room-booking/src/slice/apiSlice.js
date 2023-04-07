@@ -12,7 +12,7 @@ export const getFetch = createAsyncThunk("get-users/getFetch", async () => {
 // console.log("api",FETCH_API)
 export const apiSlice = createSlice({
   name: "api",
-  initialState: { id: "", name: "", email: "", password: "", city: "", phone: "", image: "", country: "", data: [], isLoading: false, room: "", description: "", houseowner: "", beds: "", amount: "", houseno: "", max: "", min: "", floor: "" },
+  initialState: { id: "", name: "", email: "", password: "", city: "", phone: "", image: "", country: "", data: [], isLoading: false, room: "", description: "", houseowner: "", beds: "", amount: "", houseno: "", max: "", min: "", floor: "", amenities:"" },
 
   reducers: {
 
@@ -184,6 +184,7 @@ export const apiSlice = createSlice({
           max: state.max,
           min: state.min,
           floor: state.floor,
+          amenities: state.amenities
 
         }
         axios
@@ -193,7 +194,7 @@ export const apiSlice = createSlice({
             if (response.status === 201) {
               // console.log(window)
               alert("user registered successfully!!Login into th user")
-              // window.location.reload()
+              window.location.reload()
               //   setSubmitted(true);
               //   navigate("/signin");
             }

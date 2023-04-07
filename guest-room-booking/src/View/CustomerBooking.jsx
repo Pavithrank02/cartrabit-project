@@ -54,12 +54,12 @@ const CustomerBooking = () => {
             </select>
           </div>
           <div className='frame4'>
-            <button>Search</button>
+            <button>Book</button>
           </div>
         </div>
-        <div className='ad'>
+        {/* <div className='ad'>
           <img src={ad} alt='ad' width={1400}/>
-        </div>
+        </div> */}
         <div className='calendar'>
           <CalenderComponent />
         </div>

@@ -32,11 +32,12 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var sql = "ALTER TABLE room MODIFY images varchar(255)";
+  var sql = "ALTER TABLE room MODIFY amenities varchar(255)";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table altered");
   });
 });
+
 
 // ALTER TABLE table_name MODIFY column_name varchar(new_length)

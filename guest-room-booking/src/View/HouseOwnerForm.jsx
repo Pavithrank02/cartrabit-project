@@ -38,7 +38,7 @@ import { useDispatch } from 'react-redux';
 
 const HouseOwnerForm = () => {
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState("");
   const [houseowner, setName] = useState("");
   const [room, setRoom] = useState("");
   const [house, setHouse] = useState("");
@@ -49,12 +49,28 @@ const HouseOwnerForm = () => {
   const [min, setMin] = useState("");
   const [size, setFloor] = useState("");
   const [file, setFile] = useState("");
+  const [amenities, setAmenitiesInfo] = useState("");
   const dispatch = useDispatch();
 
+  // console.log("val", val)
 
-  const handleOnChange = (e) => {
-    setIsChecked(e.target.value);
-  };
+  // const handleOnChange = (e) => {
+  //   const { value, checked } = e.target;
+  //   const { selected } = amenitiesinfo;
+  //   console.log(`${value} is ${checked}`);
+  //   // console.log(value)
+  //   if (checked) {
+  //     setAmenitiesInfo({
+  //       selected: [...selected, value],
+  //       amenities: [...selected, value],
+  //     });
+  //   } else {
+  //     setAmenitiesInfo({
+  //       selected: selected.filter((e) => e !== value),
+  //       amenities: selected.filter((e) => e !== value),
+  //     });
+  //   }
+  // };
   const handleName = (e) => {
     setName(e.target.value)
   };
@@ -82,13 +98,15 @@ const HouseOwnerForm = () => {
   const handleSize = (e) => {
     setFloor(e.target.value)
   };
-  const handleFile = (e) => {
-    console.log("files",e.target.files);
-    setFile(e.target.files)
-  };
 
-  const handleSubmit = () => {
-    console.log("file",file);
+  const handleAmenities = (e) => {
+    setAmenitiesInfo(e.target.value)
+  };
+  
+
+  const handleFile = (e) => {
+    setFile(e.target.files)
+    console.log("files", e.target.files);
     const fData = new FormData();
     fData.append('images', file);
     try {
@@ -99,17 +117,25 @@ const HouseOwnerForm = () => {
     } catch (ex) {
       console.log(ex);
     }
+    //
+
+  };
+
+  const handleSubmit = () => {
+    // console.log("file",file);
+
     dispatch(roomRegister({
       room: room,
       description: description,
       houseowner: houseowner,
       beds: beds,
       amount: amount,
-      image: file[0].name,
+      // image: file[0].name,
       houseno: house,
       max: max,
       min: min,
       floor: size,
+      amenities:amenities
 
     }));
   }
@@ -124,6 +150,7 @@ const HouseOwnerForm = () => {
       beds: '',
       amount: '',
       size: '',
+      amenities: "",
 
 
 
@@ -232,7 +259,7 @@ const HouseOwnerForm = () => {
           <input
             id="normal"
             name="email"
-            type="email"
+            type="text"
             onChange={handleHouse}
             onBlur={formik.handleBlur}
             value={house}
@@ -241,12 +268,22 @@ const HouseOwnerForm = () => {
             <div>{formik.errors.lastName}</div>
           ) : null} */}
 
-          <label>Select your desired Amenities:</label>
+          <label htmlFor="email">Amenities Provided</label>
+          <input
+            id="normal"
+            name="amenities"
+            type="text"
+            onChange={handleAmenities}
+            onBlur={formik.handleBlur}
+            value={amenities}
+          />
+
+          {/* <label>Select your desired Amenities:</label>
           <div className="topping">
             <input
               type="checkbox"
               id="topping"
-              name="topping"
+              name="selected"
               value="TV"
               // checked={isChecked}
               onChange={handleOnChange}
@@ -255,7 +292,7 @@ const HouseOwnerForm = () => {
             <input
               type="checkbox"
               id="topping"
-              name="topping"
+              name="selected"
               value="WiFi"
               // checked={isChecked}
               onChange={handleOnChange}
@@ -264,7 +301,7 @@ const HouseOwnerForm = () => {
             <input
               type="checkbox"
               id="topping"
-              name="topping"
+              name="selected"
               value="AC"
               // checked={isChecked}
               onChange={handleOnChange}
@@ -280,8 +317,8 @@ const HouseOwnerForm = () => {
               onChange={handleOnChange}
             />
             Dinner
-          </div>
-          
+          </div> */}
+
           <label className="text-white">Select Photos :</label>
           <input
             type="file"
