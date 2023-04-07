@@ -162,7 +162,7 @@ const HouseOwnerForm = () => {
   });
   return (
     <div className='form_container'>
-      <h1>Room House Registration Form</h1>
+      <h1>Room Registration Form</h1>
       <form className='ownerform' enctype="multipart/form-data" >
         <div className='form-container-left'>
           <label htmlFor="firstName">Owner Name</label>

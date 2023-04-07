@@ -6,21 +6,20 @@ const Sidebar = () => {
   
   //Displaying and rendering sidebar component.
   return (
-    <div className='sidebar' >
       <div className='sidebar-container' style={{background: 'linear-gradient(180deg, #4d4dff, #8533ff)'}}>
         <Link to={`/profile}`} style={{ textDecoration: 'none',  }}>
           <h3>
-            Profile
+            Register Room
           </h3>
         </Link>
         <Link to={`/profile}`} style={{ textDecoration: 'none',  }}>
           <h3>
-            Profile
+            Dashboard
           </h3>
         </Link>
         <Link to={`/profile}`} style={{ textDecoration: 'none',  }}>
           <h3>
-            Profile
+            Gallery
           </h3>
         </Link>
         <Link to={`/profile}`} style={{ textDecoration: 'none',  }}>
@@ -29,7 +28,7 @@ const Sidebar = () => {
           </h3>
         </Link>
       </div>
-    </div>
+
 
   )
 }
