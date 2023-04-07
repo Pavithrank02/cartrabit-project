@@ -38,6 +38,13 @@ const RoomList = () => {
                 <h1>HouseOwner : {e.house_owner}</h1>
                 <p>Room Number : {e.room_no}</p>
               </div>
+              <div className="middle">
+                <h3>Maximum Booking Days:</h3>
+                <p>{e.maxDay}</p>
+               <h3>Minimum Booking Day:</h3>
+                <p>{e.minDay}</p>
+
+              </div>
               <div className="bottom">
               <p>Rs.{e.amount} </p>
               <h3>65% off</h3>

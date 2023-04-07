@@ -19,6 +19,7 @@
 .details-container {
   display: flex;
   flex-direction: column;
+  height: 40vh;
 }
 .details-container p{
   display: flex;
@@ -35,14 +36,28 @@
   margin-left: 1rem;
 
 }
-.details-container .bottom{
+.details-container .middle{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 44vw;
   margin-left: 1rem;
-  margin-top: 5rem;
+
+}
+.details-container .middle p{
+  font-size: x-large;
+  color: #431ccf;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.details-container .bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 44vw;
+  margin-top: 2rem;
 
 }
 .details-container .bottom p{
