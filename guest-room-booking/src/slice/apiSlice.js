@@ -129,6 +129,34 @@ export const apiSlice = createSlice({
 
       }
     },
+    ownerlogin: (state, action) => {
+      try {
+        state = action.payload;
+        const data = {
+          email: state.email,
+          password: state.password
+        }
+        axios
+          .post("http://127.0.0.1:3000/owner-login", data)
+          .then((response) => {
+            console.log(response);
+            alert("login success")
+            // console.log(response.data.token);
+            localStorage.setItem("key", response.data.token);
+            const token = localStorage.getItem("key");
+            if (token) {
+              window.location.href = '/rooms'
+              // console.log(res.data._token)
+            } else {
+              return false
+            }
+            // window.location.href = '/display'
+            // Handle response
+          });
+      } catch (err) {
+
+      }
+    },
     register: (state, action) => {
       try {
         state = action.payload;
@@ -348,5 +376,5 @@ export const apiSlice = createSlice({
 // }
 
 
-export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom, ownerregister } = apiSlice.actions;
+export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom, ownerregister, ownerlogin } = apiSlice.actions;
 export default apiSlice.reducer;

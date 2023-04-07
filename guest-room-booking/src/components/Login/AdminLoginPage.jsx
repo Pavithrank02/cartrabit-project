@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
 import Background from '../Background'
+import { ownerlogin } from '../../slice/apiSlice'
+import { useDispatch } from 'react-redux'
 
 const AdminLoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const controller = new AbortController();
+  const { signal } = controller;
+  const dispatch = useDispatch()
+  const handleSubmit = (e) => {
+    // Prevent the default submit and page reload
+
+    e.preventDefault();
+
+    dispatch(ownerlogin({
+      email: email,
+      password: password
+    }))
+
+    setEmail("");
+    setPassword("")
+    // Handle validations
+
+  };
   return (
     <>
     <Background />
@@ -25,39 +47,42 @@ const AdminLoginPage = () => {
           <h1>Sign in your account!</h1>
           <p>Login with your personal details for continue</p>
           <form>
-            <input
-              style={{
-                width: "80%",
-                padding: "15px",
-                border: "none",
-                outline: "none",
-                backgroundColor: "#ddd",
-                borderRadius: "5px",
-                margin: "1px"
-              }}
-              type="text"
-              placeholder="Email"
-              id="username"
-            // onChange={handleChange}
-            />
-            <input
-              style={{
-                width: "80%",
-                padding: "15px",
-                border: "none",
-                outline: "none",
-                backgroundColor: "#ddd",
-                borderRadius: "5px",
-                margin: "1px"
-              }}
-              type="password"
-              placeholder="Password"
-              id="password"
-            // onChange={handleChange}
-            />
-            <button >
-              Login
-            </button>
+          <input
+                style={{
+                  width: "80%",
+                  padding: "15px",
+                  border: "none",
+                  outline: "none",
+                  backgroundColor: "#ddd",
+                  borderRadius: "5px",
+                  margin: "1px"
+                }}
+                type="text"
+                placeholder="Email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                style={{
+                  width: "80%",
+                  padding: "15px",
+                  border: "none",
+                  outline: "none",
+                  backgroundColor: "#ddd",
+                  borderRadius: "5px",
+                  margin: "1px"
+                }}
+                type="password"
+                placeholder="Password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              // onChange={handleChange}
+              />
+            <button type="submit" onClick={handleSubmit}>
+                Login
+              </button>
             {/* {error && <span>{error.message}</span>} */}
           </form>
         </div>
