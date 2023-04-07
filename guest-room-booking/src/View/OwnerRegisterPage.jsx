@@ -1,27 +1,21 @@
 import React from 'react'
+import HouseOwnerForm from '../components/HouseOwnerForm'
 import Sidebar from '../components/Sidebar'
 import './OwnerDashboard.css'
 import DashboardHeader from '../components/DashboardHeader'
-import DisplayRoom from '../components/DisplayRoom'
 
-const OwnerDashboard = () => {
+const OwnerRegisterPage = () => {
   return (
     <div className='dashboard-container'>
       <div className='dashboard-container-left'>
         <Sidebar />
       </div>
       <div className='dashboard-container-right'>
-        <div className='dashboard-container-right-top'>
-          <DashboardHeader />
-
-        </div>
-        <div className='dashboard-container-right-bot'>
-
-          <DisplayRoom />
-        </div>
+        <DashboardHeader />
+        <HouseOwnerForm />
       </div>
     </div>
   )
 }
 
-export default OwnerDashboard
+export default OwnerRegisterPage

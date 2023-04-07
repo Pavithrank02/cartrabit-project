@@ -1,0 +1,44 @@
+.btn {
+  color: rgb(0, 0, 0);
+  background-color: red;
+  border-radius: 5px;
+  font-size: larger;
+  display: block;
+  padding: 5px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+
+.btn-1 {
+  color: rgb(0, 0, 0);
+  background-color: rgb(12, 235, 97);
+  border-radius: 5px;
+  font-size: larger;
+  display: block;
+  padding: 5px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+table {
+  margin: 0 auto;
+  font-size: large;
+  border: 1px solid black;
+}
+
+td {
+  background-color: #E4F5D4;
+  border: 1px solid black;
+}
+
+th,
+td {
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+td {
+  font-weight: lighter;
+}

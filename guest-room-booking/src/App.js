@@ -9,6 +9,7 @@ import HouseOwnerForm from './components/HouseOwnerForm';
 import RoomsView from './View/RoomsView';
 import OwnerRegistration from './components/Registration/OwnerRegistration';
 import OwnerDashboard from './View/OwnerDashboard';
+import OwnerRegisterPage from './View/OwnerRegisterPage';
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
         <Route path="/ownerregister" element={<OwnerRegistration />} />
         <Route path="/booking/:id" element={<CustomerBooking />} />
         <Route path="/dashboard" element={<OwnerDashboard />} />
+        <Route path="/registerroom" element={<OwnerRegisterPage />} />
         <Route path="/roomlist" element={<RoomsView />} />
 
 

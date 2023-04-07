@@ -6,7 +6,7 @@
 .dashboard-container-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 75vw;
   margin-top: 2rem;
@@ -15,5 +15,12 @@
 
 .dashboard-container-left {
   width: 25vw;
+
+}
+.dashboard-container-right-top{
+  margin-bottom: 20px;
+}
+.dashboard-container-right-bot{
+  margin-left: 10rem;
 
 }
