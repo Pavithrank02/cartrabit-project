@@ -10,6 +10,7 @@ const Filter = () => {
     <div className='filter-container'>
       <div>
         <h1>Filters</h1>
+        
         <input
           style={{
             width: "100%",
@@ -24,7 +25,8 @@ const Filter = () => {
           placeholder="Search Destination"
           id="username"
           onChange={(e) => e.target.value}
-        />      </div>
+        />
+        </div>
       <div className='slide'>
         <h3>
           Price

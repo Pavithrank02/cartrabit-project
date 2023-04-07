@@ -1,7 +1,7 @@
 import React from 'react'
 import img from '../assets/image/0x0.jpg'
 import ad from '../assets/image/Capture.JPG'
-import Cale
+import CalenderComponent from '../components/CalenderComponent'
 import './CustomerBooking.css'
 import Header from '../components/Header'
 
