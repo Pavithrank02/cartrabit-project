@@ -4,7 +4,7 @@ import Room from '../components/Room'
 import './RoomList.css'
 import RoomHeader from '../components/RoomHeader'
 
-const RoomList = () => {
+const RoomsView = () => {
   return (
     <div className='RoomContainer'>
       <RoomHeader />
@@ -17,4 +17,4 @@ const RoomList = () => {
   )
 }
 
-export default RoomList
+export default RoomsView

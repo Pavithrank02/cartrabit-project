@@ -6,7 +6,7 @@ import CustomerLoginPage from './components/Login/CustomerLoginPage';
 import Registration from './components/Registration/Registration';
 import CustomerBooking from './View/CustomerBooking';
 import HouseOwnerForm from './View/HouseOwnerForm';
-import RoomList from './View/RoomList';
+import RoomsView from './View/RoomsView';
 function App() {
   return (
     <div className="App">
@@ -16,7 +16,7 @@ function App() {
         <Route path="/register" element={<Registration />} />
         <Route path="/booking" element={<CustomerBooking />} />
         <Route path="/rooms" element={<HouseOwnerForm />} />
-        <Route path="/roomlist" element={<RoomList />} />
+        <Route path="/roomlist" element={<RoomsView />} />
 
 
 

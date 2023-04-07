@@ -1,0 +1,16 @@
+.roomList-component{
+  height: 40vh;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  width: 77.4vw;
+  background-color: azure;
+  border-bottom: 1px solid lightgray;
+}
+.image-container{
+  margin-top: 2px;
+  height: 35vh;
+}
+.image-container img{
+  height: 250px ;
+  width: 500px ;
+}

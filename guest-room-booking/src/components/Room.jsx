@@ -1,5 +1,6 @@
 import React from 'react'
 import './Rooms.css'
+import RoomList from './RoomList'
 
 const Room = () => {
   return (
@@ -21,7 +22,7 @@ const Room = () => {
       <div className='list'>
 
       </div>
-      Room
+      <RoomList />
     </div>
   )
 }
