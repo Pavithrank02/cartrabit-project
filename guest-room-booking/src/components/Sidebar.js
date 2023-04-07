@@ -7,12 +7,12 @@ const Sidebar = () => {
   //Displaying and rendering sidebar component.
   return (
       <div className='sidebar-container' style={{background: 'linear-gradient(180deg, #4d4dff, #8533ff)'}}>
-        <Link to={'/registerroom'} style={{ textDecoration: 'none',  }}>
+        <Link to={'/registerroom/:name'} style={{ textDecoration: 'none',  }}>
           <h3>
             Register Room
           </h3>
         </Link>
-        <Link to={`/dashboard`} style={{ textDecoration: 'none',  }}>
+        <Link to={`/dashboard/:name`} style={{ textDecoration: 'none',  }}>
           <h3>
             Dashboard
           </h3>

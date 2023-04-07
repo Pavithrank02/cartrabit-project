@@ -19,8 +19,8 @@ function App() {
         <Route path="/customerregister" element={<Registration />} />
         <Route path="/ownerregister" element={<OwnerRegistration />} />
         <Route path="/booking/:id" element={<CustomerBooking />} />
-        <Route path="/dashboard" element={<OwnerDashboard />} />
-        <Route path="/registerroom" element={<OwnerRegisterPage />} />
+        <Route path="/dashboard/:name" element={<OwnerDashboard />} />
+        <Route path="/registerroom/:name" element={<OwnerRegisterPage />} />
         <Route path="/roomlist" element={<RoomsView />} />
 
 

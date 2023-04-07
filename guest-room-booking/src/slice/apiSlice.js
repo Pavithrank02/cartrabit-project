@@ -137,7 +137,7 @@ export const apiSlice = createSlice({
           password: state.password
         }
         axios
-          .post("http://127.0.0.1:3000/owner-login", data)
+          .post(`http://127.0.0.1:3000/owner-login`, data)
           .then((response) => {
             console.log(response);
             alert("login success")
@@ -145,7 +145,7 @@ export const apiSlice = createSlice({
             localStorage.setItem("key", response.data.token);
             const token = localStorage.getItem("key");
             if (token) {
-              window.location.href = '/dashboard'
+              window.location.href = `/dashboard/${response.data.user.name}`
               // console.log(res.data._token)
             } else {
               return false

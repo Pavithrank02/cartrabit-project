@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Login.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Background from '../Background'
 import { ownerlogin } from '../../slice/apiSlice'
 import { useDispatch } from 'react-redux'
@@ -11,6 +11,24 @@ const AdminLoginPage = () => {
   const controller = new AbortController();
   const { signal } = controller;
   const dispatch = useDispatch()
+  const [data, setData] = useState("");
+  const Navigate = useNavigate()
+
+  console.log("datas", data)
+
+  // const dispatch = useDispatch()
+
+  useEffect(() => {
+
+    fetchApi();
+    console.log("data",data)
+  }, []);
+  const fetchApi = async () => {
+    const response = await fetch("http://127.0.0.1:3000/get-user");
+    const json = await response.json();
+    setData(json)
+    // console.log(json)
+  };
   const handleSubmit = (e) => {
     // Prevent the default submit and page reload
 
@@ -20,9 +38,10 @@ const AdminLoginPage = () => {
       email: email,
       password: password
     }))
-
+  
     setEmail("");
     setPassword("")
+    // Navigate(`/dashboard/${}`)
     // Handle validations
 
   };

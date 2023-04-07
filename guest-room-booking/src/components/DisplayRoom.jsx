@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import Update from "./Update";
 import { useDispatch } from "react-redux";
 import { deleteuser } from "../slice/apiSlice";
@@ -9,6 +9,8 @@ import './DisplayRoom.css'
 
 const DisplayRoom = () => {
   const [data, setData] = useState("");
+  const params = useParams()
+  console.log("params",params)
   const Navigate = useNavigate()
   console.log(data)
 
@@ -22,7 +24,7 @@ const DisplayRoom = () => {
     
   }, []);
   const fetchApi = async () => {
-    const response = await fetch("http://127.0.0.1:3000/get-rooms");
+    const response = await fetch(`http://127.0.0.1:3000/get-rooms/${params.name}`);
     const json = await response.json();
     setData(json)
     // console.log(json)
