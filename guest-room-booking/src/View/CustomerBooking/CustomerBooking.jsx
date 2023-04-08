@@ -82,7 +82,7 @@ const CustomerBooking = () => {
           <ImageSlider />
         </div>
         <div className='calendar'>
-          <CalenderComponent />
+        <CalenderComponent />
         </div>
 
       </div>

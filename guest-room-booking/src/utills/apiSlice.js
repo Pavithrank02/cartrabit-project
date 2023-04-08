@@ -270,7 +270,7 @@ export const apiSlice = createSlice({
             if (error.response) {
               // Request made and server responded
               alert(error.response.data.msg);
-              window.location.href = '/signup'
+              // window.location.href = '/signup'
               //   setSubmitted(false);
               //   navigate("/signup")
 

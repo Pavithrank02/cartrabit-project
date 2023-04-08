@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './View/Home/Home';
 import CustomerLoginPage from './components/Login/CustomerLoginPage';
