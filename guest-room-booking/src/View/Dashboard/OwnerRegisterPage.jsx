@@ -1,8 +1,8 @@
 import React from 'react'
-import HouseOwnerForm from '../components/HouseOwnerForm'
-import Sidebar from '../components/Sidebar'
+import HouseOwnerForm from '../../components/Form/HouseOwnerForm'
+import Sidebar from '../../components/Sidebar/Sidebar'
+import DashboardHeader from '../../components/Headers/DashboardHeader/DashboardHeader'
 import './OwnerDashboard.css'
-import DashboardHeader from '../components/DashboardHeader'
 
 const OwnerRegisterPage = () => {
   return (

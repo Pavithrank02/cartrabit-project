@@ -1,15 +1,14 @@
 
-import './App.css';
-import Home from './View/Home';
 import { Routes, Route } from 'react-router-dom';
+import Home from './View/Home/Home';
 import CustomerLoginPage from './components/Login/CustomerLoginPage';
 import Registration from './components/Registration/Registration';
-import CustomerBooking from './View/CustomerBooking';
-import HouseOwnerForm from './components/HouseOwnerForm';
-import RoomsView from './View/RoomsView';
-import OwnerRegistration from './components/Registration/OwnerRegistration';
-import OwnerDashboard from './View/OwnerDashboard';
-import OwnerRegisterPage from './View/OwnerRegisterPage';
+import CustomerBooking from './View/CustomerBooking/CustomerBooking'
+import OwnerRegisterPage from './View/Dashboard/OwnerRegisterPage'
+import RoomsView from './View/RoomView/RoomsView';
+import OwnerDashboard from './View/Dashboard/OwnerDashboard';
+import OwnerRegistration from './components/Registration/OwnerRegistration'
+import './App.css';
 function App() {
   return (
     <div className="App">

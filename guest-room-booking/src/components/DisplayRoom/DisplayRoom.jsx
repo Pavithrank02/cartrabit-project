@@ -2,9 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 // import Update from "./Update";
 import { useDispatch } from "react-redux";
-import { deleteuser } from "../slice/apiSlice";
+import { deleteuser } from "../../utills/apiSlice";
 import { useSelector } from "react-redux";
-import { getFetch } from "../slice/apiSlice";
 import './DisplayRoom.css'
 
 const DisplayRoom = () => {

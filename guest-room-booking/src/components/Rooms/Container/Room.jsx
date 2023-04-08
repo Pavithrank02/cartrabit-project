@@ -1,6 +1,6 @@
 import React from 'react'
 import './Rooms.css'
-import RoomList from './RoomList'
+import RoomList from '../RoomList/RoomList'
 
 const Room = () => {
   return (

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import img from '../assets/image/0x0.jpg'
-import ImageSlider from '../components/imageSlider'
-import { getroom } from '../slice/apiSlice'
-import ad from '../assets/image/Capture.JPG'
-import CalenderComponent from '../components/CalenderComponent'
-import './CustomerBooking.css'
-import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import Header from '../components/Header'
+import img from '../../assets/image/0x0.jpg'
+import ImageSlider from '../../components/ImageSlider/imageSlider'
+import CalenderComponent from '../../components/Calendar/CalenderComponent'
+import Header from '../../components/Headers/MainHeader/Header'
+import './CustomerBooking.css'
 
 const CustomerBooking = () => {
   const Params = useParams()

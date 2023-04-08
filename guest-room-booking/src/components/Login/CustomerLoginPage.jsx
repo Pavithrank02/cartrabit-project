@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../slice/apiSlice";
-import './Login.css'
 import { Link } from 'react-router-dom'
-import Background from '../Background'
+import { login } from "../../slice/apiSlice";
+import Background from '../../components/Background/Background'
+import './Login.css'
 
 const CustomerLoginPage = () => {
   const navigate = useNavigate();

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
-import Background from '../Background'
 import { ownerlogin } from '../../slice/apiSlice'
 import { useDispatch } from 'react-redux'
+import Background from '../../components/Background/Background'
+import './Login.css'
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState("");

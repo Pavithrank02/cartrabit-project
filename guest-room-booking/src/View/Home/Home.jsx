@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminLoginPage from '../components/Login/AdminLoginPage'
+import AdminLoginPage from '../../components/Login/AdminLoginPage'
 const Home = () => {
   return (
     <>

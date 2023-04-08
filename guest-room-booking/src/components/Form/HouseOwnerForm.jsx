@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { roomRegister, fetchuser } from '../slice/apiSlice';
+import { roomRegister, fetchuser } from '../../utills/apiSlice';
 import './Owner.css'
 import { useDispatch } from 'react-redux';
 

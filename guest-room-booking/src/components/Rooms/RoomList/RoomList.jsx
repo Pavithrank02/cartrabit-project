@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchApi } from '../slice/apiSlice'
+import { fetchApi } from '../../../utills/apiSlice'
 import { useDispatch } from "react-redux";
 
 import './RoomListComp.css'

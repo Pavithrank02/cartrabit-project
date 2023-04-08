@@ -1,8 +1,8 @@
 import React from 'react'
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../../components/Sidebar/Sidebar'
+import DashboardHeader from '../../components/Headers/DashboardHeader/DashboardHeader'
+import DisplayRoom from '../../components/DisplayRoom/DisplayRoom'
 import './OwnerDashboard.css'
-import DashboardHeader from '../components/DashboardHeader'
-import DisplayRoom from '../components/DisplayRoom'
 
 const OwnerDashboard = () => {
   return (

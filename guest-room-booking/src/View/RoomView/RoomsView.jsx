@@ -1,8 +1,8 @@
 import React from 'react'
-import Filter from '../components/Filter'
-import Room from '../components/Room'
+import Filter from '../../components/Filters/Filter'
+import Room from '../../components/Rooms/Container/Room'
+import RoomHeader from '../../components/Headers/RoomHeader/RoomHeader'
 import './RoomList.css'
-import RoomHeader from '../components/RoomHeader'
 
 const RoomsView = () => {
   return (
