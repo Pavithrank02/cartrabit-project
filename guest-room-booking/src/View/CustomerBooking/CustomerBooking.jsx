@@ -6,7 +6,8 @@ import CalenderComponent from '../../components/Calendar/CalenderComponent'
 import Header from '../../components/Headers/MainHeader/Header'
 import './CustomerBooking.css'
 
-const CustomerBooking = () => {
+const CustomerBooking = (props) => {
+  console.log(props)
   const Params = useParams()
   // console.log("params",Params)
   const [data, setData] = useState("");

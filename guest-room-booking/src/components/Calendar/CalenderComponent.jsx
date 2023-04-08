@@ -13,14 +13,13 @@ const CalenderComponent = props => {
     let startDate = date[0].toDateString()
     let endDate = date[1].toDateString()
     let Difference_In_Time = new Date(endDate).getTime() - new Date(startDate).getTime();
-
     // To calculate the no. of days between two dates
     let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
     console.log(Difference_In_Days)
-    // setStartDate()
-    // setEndDate(date[1].toDateString())
 
-    //  console.log( startDate + endDate)
+    return{
+      startDate, endDate, Difference_In_Days
+    }
 
   }
 
@@ -31,7 +30,7 @@ const CalenderComponent = props => {
       <div>
         <Calendar onChange={setDate} value={date} selectRange={true} />
       </div>
-      {date.length > 0 ? (
+      {date && date.length > 0 ? (
         <p>
           <span>Start:</span>{' '} {date[0].toDateString()}
           &nbsp; to &nbsp;
