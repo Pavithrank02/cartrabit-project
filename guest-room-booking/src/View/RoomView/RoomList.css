@@ -9,7 +9,36 @@
 
 .image-view{
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   width: 100vw;
+  /* margin-top: -2rem; */
+}
+.book-middle{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.image-view .middle{
+  margin-top: -7rem;
+  margin-bottom: 0;
+}
+.book-middle button{
+  width: 25em;
+  margin-left: 1rem;
+  background-color: blueviolet;
+  color: white;
+  font-size: medium;
+  font-weight: 400;
+  cursor: pointer;
+}
+.details{
+  margin-left: 4rem;
+  margin-top: -4rem;
+}
+
+.details p{
+  padding: 10px;
+  border-bottom: 2px solid lightgray;
+  width: 50vw;
 }

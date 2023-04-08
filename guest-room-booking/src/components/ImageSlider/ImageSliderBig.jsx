@@ -23,7 +23,7 @@ const ImageSliderBig = () => {
         View Images of Rooms        </h3>
       <SimpleImageSlider
         width={1000}
-        height={400}
+        height={500}
         images={sliderImages}
         showNavs={true}
       />
