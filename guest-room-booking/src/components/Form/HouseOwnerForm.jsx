@@ -130,7 +130,7 @@ const HouseOwnerForm = () => {
       houseowner: houseowner,
       beds: beds,
       amount: amount,
-      // image: file[0].name,
+      image: file[0].name,
       houseno: house,
       max: max,
       min: min,

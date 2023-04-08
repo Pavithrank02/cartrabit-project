@@ -11,6 +11,7 @@ const CustomerBooking = (props) => {
   const Params = useParams()
   // console.log("params",Params)
   const [data, setData] = useState("");
+  const [getDate, setgetDate] = useState("")
   // console.log("data", data.data);
 
   // const {id,house_owner, maxDay, minDay } = data.data[0]
@@ -27,6 +28,12 @@ const CustomerBooking = (props) => {
     setData(json)
     // console.log(json)
   };
+
+  const getUpdatedDate = (dateArray) => {
+    console.log("dateinparent",dateArray)
+    setgetDate(dateArray)
+
+  }
 
   const handleSubmit = () => {
     if(data && data.data[0].maxDay ){
@@ -89,7 +96,7 @@ const CustomerBooking = (props) => {
           <ImageSlider />
         </div>
         <div className='calendar'>
-        <CalenderComponent />
+        <CalenderComponent getUpdatedDate={getUpdatedDate}/>
         </div>
 
       </div>
