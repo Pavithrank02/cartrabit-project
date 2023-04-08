@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import apiSlice from '../slice/apiSlice';
+import apiSlice from '../../src/utills/apiSlice';
 // import { getFetch } from '../slice/fetchSlice';
 
 

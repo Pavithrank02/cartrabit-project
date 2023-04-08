@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
-import { login } from "../../slice/apiSlice";
+import { login } from "../../utills/apiSlice";
 import Background from '../../components/Background/Background'
 import './Login.css'
 

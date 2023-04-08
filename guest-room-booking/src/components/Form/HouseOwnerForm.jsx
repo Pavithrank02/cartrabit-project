@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { roomRegister, fetchuser } from '../../utills/apiSlice';
-import './Owner.css'
 import { useDispatch } from 'react-redux';
+import './Owner.css'
 
 // const validate = values => {
 
@@ -178,7 +178,7 @@ const HouseOwnerForm = () => {
             <div>{formik.errors.firstName}</div>
           ) : null} */}
 
-          <label>Room Number</label>
+          <label>Room Name</label>
           <input
             id="normal"
             name="lastName"

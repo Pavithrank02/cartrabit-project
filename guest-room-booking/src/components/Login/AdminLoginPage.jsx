@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ownerlogin } from '../../slice/apiSlice'
 import { useDispatch } from 'react-redux'
+import { ownerlogin } from '../../utills/apiSlice'
 import Background from '../../components/Background/Background'
 import './Login.css'
 
