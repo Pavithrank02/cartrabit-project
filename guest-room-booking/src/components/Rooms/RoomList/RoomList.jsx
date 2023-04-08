@@ -50,8 +50,8 @@ const RoomList = () => {
               <div className="bottom">
               <p>Rs.{e.amount} </p>
               <h3>65% off</h3>
-              <button onClick={() => Navigate(`/booking/${e.id}`)}>View Details</button>
-              <button>Book</button>
+              <button onClick={() => Navigate(`/viewdetails/${e.id}`)}>View Details</button>
+              <button onClick={() => Navigate(`/booking/${e.id}`)}>Book</button>
               </div>
             </div>
           </div>

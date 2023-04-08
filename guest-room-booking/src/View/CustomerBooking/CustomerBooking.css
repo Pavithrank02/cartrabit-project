@@ -167,6 +167,7 @@
   width: 5vw;
   border: 2px solid ;
   border-color: rgba(0, 0, 255, 0.37);
+ 
 }
 .frame4 button{
   color: white;
@@ -179,4 +180,5 @@
   width: 5rem;
   height: 3.5rem;
   border-radius: 0%;
+  cursor: pointer;
 }

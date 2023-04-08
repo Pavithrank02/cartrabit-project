@@ -27,6 +27,12 @@ const CustomerBooking = () => {
     // console.log(json)
   };
 
+  const handleSubmit = () => {
+    if(data && data.data[0].maxDay ){
+      
+    }
+  }
+
   return (
     <div className='background'>
       <div className='booking-card'>
@@ -75,7 +81,7 @@ const CustomerBooking = () => {
             </select>
           </div>
           <div className='frame4'>
-            <button>Book</button>
+            <button onClick={handleSubmit}>Book</button>
           </div>
         </div>
         <div className='ad'>
