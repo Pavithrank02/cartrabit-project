@@ -333,7 +333,7 @@ export const apiSlice = createSlice({
           endday: state.endday,
         }
         axios
-          .post(`http://127.0.0.1:3000/bookroom/${data.id}`)
+          .post(`http://127.0.0.1:3000/bookroom/${data.id}`, data)
           .then((response) => {
             console.log(response)
             alert("Room Booked Successfully");

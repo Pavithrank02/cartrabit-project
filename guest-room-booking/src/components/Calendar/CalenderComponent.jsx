@@ -32,7 +32,7 @@ const CalenderComponent = props => {
       const range = moment.range(date1);
       const range2 = moment.range(date2);
   
-      if (Difference_In_Days > maxDay && Difference_In_Days < minDay) {
+      if (Difference_In_Days > maxDay) {
         alert(`selected dates needs to be less than ${maxDay}`)
   
       } else if (range.overlaps(range2)) {
@@ -44,10 +44,13 @@ const CalenderComponent = props => {
           alert("time range 1 is partially conflict with time range 2 and vice versa");
   
       } else {
+        console.log("before dispatch", startDate, endDate)
+        const date1 = moment(startDate).format('YYYY-MM-DD')
+        const date2 = moment(endDate).format('YYYY-MM-DD')
         dispatch(bookroom({
           id: id,
-          startday: startDate,
-          endday: endDate
+          startday: date1,
+          endday: date2
         }))
   
       }
@@ -66,17 +69,21 @@ const CalenderComponent = props => {
       <div className='app'>
         <h1>Check Date Availability</h1>
         <div>
-          <Calendar onChange={handleDateChange} value={date} selectRange={true} />
+          <Calendar 
+          onChange={handleDateChange} 
+          value={date} 
+          selectRange={true}
+           />
         </div>
         {date && date.length > 0 ? (
           <p>
-            <span>Start:</span>{' '} {date[0].toDateString()}
+            <span>Start:</span>{date[0].toDateString()}
             &nbsp; to &nbsp;
             <span>End:</span> {date[1].toDateString()}
           </p>
         ) : (
-          <p>
-            <span>Default selected date:</span>{' '} {date.toDateString()}
+          <p style={{marginTop: '10px'}}>
+            {/* <span>Room After:</span>{' '} {props && props.data.data[0].endDay} */}
           </p>
         )}
       </div>
