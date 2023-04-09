@@ -58,7 +58,6 @@ const HouseOwnerForm = () => {
   const [max, setMax] = useState("");
   const [min, setMin] = useState("");
   const [size, setFloor] = useState("");
-  const [file, setFile] = useState("");
   const [amenities, setAmenitiesInfo] = useState("");
   const dispatch = useDispatch();
 
@@ -85,18 +84,6 @@ const HouseOwnerForm = () => {
 
   const handleSubmit = () => {
     // console.log("file",file);
-    const fData = new FormData();
-    fData.append('file', file[0].name);
-    console.log("file",file)
-    fData.append("fileName", file[0])
-    try {
-      dispatch(fetchuser({
-        data: fData
-      }))
-      console.log("img", fData);
-    } catch (ex) {
-      console.log(ex);
-    }
 
     dispatch(roomRegister({
       room: room,
@@ -104,7 +91,6 @@ const HouseOwnerForm = () => {
       houseowner: houseowner,
       beds: beds,
       amount: amount,
-      image: file[0].name,
       houseno: house,
       max: max,
       min: min,
@@ -292,7 +278,7 @@ const HouseOwnerForm = () => {
             Dinner
           </div> */}
 
-          <label className="text-white">Select Photos :</label>
+          {/* <label className="text-white">Select Photos :</label>
           <input
             type="file"
             accept="image/*"
@@ -300,7 +286,7 @@ const HouseOwnerForm = () => {
             className="form-control"
             name="multi-files"
             onChange={(e) =>setFile(e.target.files)}
-          />
+          /> */}
 
           <label className="input-container">Floor Size</label>
           <input

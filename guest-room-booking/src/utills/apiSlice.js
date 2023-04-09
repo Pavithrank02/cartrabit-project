@@ -39,7 +39,7 @@ export const apiSlice = createSlice({
       try {
         console.log(action)
         state = action.payload;
-        const data = state.data;
+        const data = state.data
         console.log("data",data)
         const config = {
           headers: {

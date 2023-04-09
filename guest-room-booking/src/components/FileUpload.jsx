@@ -1,63 +1,39 @@
 import React from 'react'
-import axios from 'axios';
- 
-class FileUpload extends React.Component{
- 
-    constructor(){
-        super();
-        this.state = {
-            selectedFile:'',
-        }
- 
-        this.handleInputChange = this.handleInputChange.bind(this);
+import { useDispatch } from 'react-redux';
+import { fetchuser } from '../utills/apiSlice';
+import { useState } from 'react';
+
+const FileUpload = () => {
+  const [file, setFile] = useState("");
+  const dispatch = useDispatch();
+  const handleFile = () => {
+    const fData = new FormData();
+    fData.append('file', file[0].name);
+    console.log("file", file)
+    fData.append("fileName", file[0])
+    try {
+      dispatch(fetchuser({
+        data: fData
+      }))
+      console.log("img", fData);
+    } catch (ex) {
+      console.log(ex);
     }
- 
-    handleInputChange(event) {
-        this.setState({
-            selectedFile: event.target.files[0],
-          })
-    }
- 
-    submit(){
-        const data = new FormData() 
-        data.append('file', this.state.selectedFile)
-        console.warn(this.state.selectedFile);
-        let url = "http://127.0.0.1:3000/profile-upload-single";
- 
-        axios.post(url, data, { // receive two parameter endpoint url ,form data 
-        })
-        .then(res => { // then print response status
-            console.warn(res);
-        })
- 
-    }
- 
-    render(){
-        return(
-            <div>
-                <div className="row">
-                    <div className="col-md-6 offset-md-3">
-                        <br /><br />
- 
-                            <h3 className="text-white">React File Upload Example - Tutsmake.com</h3>
-                            <br />
-                            <form className="form-row" enctype="multipart/form-data">
-                                <div className="form-group col-md-6">
-                                    <label className="text-white">Select File :</label>
-                                    <input type="file" className="form-control" name="upload_file" onChange={this.handleInputChange} />
-                                </div>
-                            </form>
- 
-                            <div className="form-row">
-                                <div className="col-md-6">
-                                    <button type="submit" className="btn btn-dark" onClick={()=>this.submit()}>Save</button>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        )  
-    }
+  }
+  return (
+    <div>
+      <label className="text-white">Select Photos :</label>
+      <input
+        type="file"
+        accept="image/*"
+        multiple
+        className="form-control"
+        name="multi-files"
+        onChange={(e) => setFile(e.target.files)}
+      />
+      <button onClick={handleFile}>Upload</button>
+    </div>
+  )
 }
- 
-export default FileUpload;
+
+export default FileUpload
