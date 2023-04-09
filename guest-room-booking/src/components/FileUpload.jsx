@@ -9,6 +9,7 @@ const FileUpload = () => {
   const params = useParams()
   console.log(params)
   const [file, setFile] = useState("");
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
   const handleFile = () => {
     const fData = new FormData();
@@ -17,7 +18,7 @@ const FileUpload = () => {
     fData.append("fileName", file[0])
     try {
       dispatch(imageupload({
-        name: params.name,
+        name: name,
         data: fData
       }))
       console.log("img", fData);
@@ -27,6 +28,15 @@ const FileUpload = () => {
   }
   return (
     <div className='fileupload'>
+     <input
+            id="normal"
+            name="room"
+            type="text"
+            placeholder='Owner Name'
+            onChange={(e) =>setName(e.target.value)}
+            // onBlur={formik.handleBlur}
+            value={name}
+          />
       <label className="text-white">Select Photos :</label>
       <input
         type="file"

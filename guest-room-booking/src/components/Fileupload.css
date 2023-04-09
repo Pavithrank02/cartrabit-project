@@ -17,4 +17,5 @@
 }
 .fileupload button{
   margin-top: -0.3rem;
+  cursor: pointer;
 }

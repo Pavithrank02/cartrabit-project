@@ -1,8 +1,12 @@
 import React from 'react'
 import { FaUser } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import './Dashboard.css'
 
 const DashboardHeader = () => {
+  const params = useParams()
+  const navigate = useNavigate()
   return (
     <div className='dashheader'>
       <div className='Logo1'>
@@ -10,7 +14,7 @@ const DashboardHeader = () => {
       </div>
       <div className='icons1'>
         <FaUser style={{ fontSize: '20px' }} />
-        <p>Customer</p>
+        <p onClick={navigate('/')}>{params.name}</p>
       </div>
     </div>
   )

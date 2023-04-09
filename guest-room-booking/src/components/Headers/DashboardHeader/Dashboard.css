@@ -22,4 +22,5 @@
 .icons1 p{
   font-size: x-large;
   margin-top: 1rem;
+  cursor: pointer;
 }
