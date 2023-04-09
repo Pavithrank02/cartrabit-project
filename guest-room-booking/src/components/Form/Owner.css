@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 75vw;
 }
 
 .ownerform {
@@ -13,6 +14,7 @@
   width: 50vw;
   height: 70vh;
   border: 1px solid rgba(255, 255, 255, 10);
+  
 }
 
 .ownerform label {

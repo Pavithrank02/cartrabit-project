@@ -39,7 +39,7 @@ export const apiSlice = createSlice({
       try {
         console.log(action)
         state = action.payload;
-        const data = state.data
+        const data = state.data;
         console.log("data",data)
         const config = {
           headers: {
@@ -219,7 +219,7 @@ export const apiSlice = createSlice({
             if (response.status === 201) {
               // console.log(window)
               alert("user registered successfully!!Login into th user")
-              window.location.reload()
+              // window.location.reload()
               //   setSubmitted(true);
               //   navigate("/signin");
             }

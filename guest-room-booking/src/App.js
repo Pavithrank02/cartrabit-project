@@ -10,6 +10,7 @@ import OwnerDashboard from './View/Dashboard/OwnerDashboard';
 import OwnerRegistration from './components/Registration/OwnerRegistration'
 import './App.css';
 import RoomDetails from './View/RoomView/RoomDetails';
+import FileUpload from './components/FileUpload';
 function App() {
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function App() {
         <Route path="/roomlist" element={<RoomsView />} />
         <Route path="/viewdetails/:id" element={<RoomDetails />} />
 
-
+        <Route path="/file" element={<FileUpload />} />
 
       </Routes>
 

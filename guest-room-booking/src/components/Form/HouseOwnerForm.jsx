@@ -33,10 +33,22 @@ import './Owner.css'
 //   return errors;
 // };
 
-
+// initialState = {
+//   houseowner: "",
+//   room: "",
+//   house:"",
+//   description:"",
+//   amount:"",
+//   beds:"",
+//   max:"",
+//   min:"",
+//   size:"",
+//   file:"",
+//   amenities:""
+// }
 const HouseOwnerForm = () => {
 
-  const [isChecked, setIsChecked] = useState("");
+  // const [isChecked, setIsChecked] = useState(initialState);
   const [houseowner, setName] = useState("");
   const [room, setRoom] = useState("");
   const [house, setHouse] = useState("");
@@ -69,46 +81,14 @@ const HouseOwnerForm = () => {
   //     });
   //   }
   // };
-  const handleName = (e) => {
-    setName(e.target.value)
-  };
-  const handleRoom = (e) => {
-    setRoom(e.target.value)
-  };
-  const handleDescription = (e) => {
-    setDescription(e.target.value)
-  };
-  const handleAmount = (e) => {
-    setAmount(e.target.value)
-  };
-  const handleBeds = (e) => {
-    setBeds(e.target.value)
-  };
-  const handleHouse = (e) => {
-    setHouse(e.target.value)
-  };
-  const handleMax = (e) => {
-    setMax(e.target.value)
-  };
-  const handleMin = (e) => {
-    setMin(e.target.value)
-  };
-  const handleSize = (e) => {
-    setFloor(e.target.value)
-  };
 
-  const handleAmenities = (e) => {
-    setAmenitiesInfo(e.target.value)
-  };
-  
 
-  const handleFile = (e) => {
-    setFile(e.target.files)
-    const imgFile = e.target.files
-    console.log("files", e.target.files);
+  const handleSubmit = () => {
+    // console.log("file",file);
     const fData = new FormData();
-    fData.append('file', imgFile);
-    fData.append("fileName", imgFile[0].name)
+    fData.append('file', file[0].name);
+    console.log("file",file)
+    fData.append("fileName", file[0])
     try {
       dispatch(fetchuser({
         data: fData
@@ -117,12 +97,6 @@ const HouseOwnerForm = () => {
     } catch (ex) {
       console.log(ex);
     }
-    //
-
-  };
-
-  const handleSubmit = () => {
-    // console.log("file",file);
 
     dispatch(roomRegister({
       room: room,
@@ -136,7 +110,6 @@ const HouseOwnerForm = () => {
       min: min,
       floor: size,
       amenities:amenities
-
     }));
   }
   const formik = useFormik({
@@ -170,7 +143,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="firstName"
             type="text"
-            onChange={handleName}
+            onChange={(e) =>setName(e.target.value)}
             onBlur={formik.handleBlur}
             value={houseowner}
           />
@@ -183,7 +156,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
-            onChange={handleRoom}
+            onChange={(e) =>setRoom(e.target.value)}
             onBlur={formik.handleBlur}
             value={room}
           />
@@ -196,7 +169,7 @@ const HouseOwnerForm = () => {
             id="textarea"
             name="description"
             type="text"
-            onChange={handleDescription}
+            onChange={(e) =>setDescription(e.target.value)}
             onBlur={formik.handleBlur}
             value={description}
           />
@@ -209,7 +182,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="amount"
             type="text"
-            onChange={handleAmount}
+            onChange={(e) =>setAmount(e.target.value)}
             onBlur={formik.handleBlur}
             value={amount}
           />
@@ -221,7 +194,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
-            onChange={handleBeds}
+            onChange={(e) =>setBeds(e.target.value)}
             onBlur={formik.handleBlur}
             value={beds}
           />
@@ -235,7 +208,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
-            onChange={handleMax}
+            onChange={(e) =>setMax(e.target.value)}
             onBlur={formik.handleBlur}
             value={max}
           />
@@ -247,7 +220,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
-            onChange={handleMin}
+            onChange={(e) =>setMin(e.target.value)}
             onBlur={formik.handleBlur}
             value={min}
           />
@@ -260,7 +233,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="email"
             type="text"
-            onChange={handleHouse}
+            onChange={(e) =>setHouse(e.target.value)}
             onBlur={formik.handleBlur}
             value={house}
           />
@@ -273,7 +246,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="amenities"
             type="text"
-            onChange={handleAmenities}
+            onChange={(e) =>setAmenitiesInfo(e.target.value)}
             onBlur={formik.handleBlur}
             value={amenities}
           />
@@ -325,8 +298,8 @@ const HouseOwnerForm = () => {
             accept="image/*"
             multiple
             className="form-control"
-            name="upload_file"
-            onChange={handleFile}
+            name="multi-files"
+            onChange={(e) =>setFile(e.target.files)}
           />
 
           <label className="input-container">Floor Size</label>
@@ -336,7 +309,7 @@ const HouseOwnerForm = () => {
             className="input"
             value={size}
             type="text"
-            onChange={handleSize}
+            onChange={(e) =>setFloor(e.target.value)}
           />
         </div>
       </form>
