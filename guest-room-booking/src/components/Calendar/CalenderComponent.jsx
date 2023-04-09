@@ -1,17 +1,20 @@
 import React from 'react'
 import { useState } from 'react';
 import Calendar from 'react-calendar';
+import Moment from 'moment';
+import { extendMoment } from 'moment-range';
 import './Calender.css'
-import moment from 'moment/moment';
 
 
 const CalenderComponent = props => {
+  const moment = extendMoment(Moment);
 
   const [date, setDate] = useState(new Date())
-  const { id, maxDay, minDay, startDay, endDay } = props.data.data[0]
 
-  console.log("prop", props)
+
+  console.log("propincalendar", props)
   if (date && date.length > 0) {
+    const { maxDay, minDay, startDay, endDay } = props && props.data.data[0]
 
     let startDate = date[0].toDateString()
     let endDate = date[1].toDateString()
@@ -25,7 +28,7 @@ const CalenderComponent = props => {
     const range = moment.range(date1);
     const range2 = moment.range(date2);
 
-    if (Difference_In_Days > maxDay && Difference_In_Days < minDay) {
+    if (Difference_In_Days < maxDay && Difference_In_Days > minDay) {
       alert(`selected dates needs to be less than ${maxDay}`)
 
     } else if (range.overlaps(range2)) {
@@ -38,11 +41,10 @@ const CalenderComponent = props => {
 
     } else {
 
-      
+
 
     }
-
-
+  }
 
     const handleDateChange = (e) => {
       console.log("calenderchange", e)
@@ -72,7 +74,6 @@ const CalenderComponent = props => {
     )
 
   }
-}
 
 
 
