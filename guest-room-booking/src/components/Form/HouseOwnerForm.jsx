@@ -85,6 +85,7 @@ const HouseOwnerForm = () => {
   const handleSubmit = () => {
     // console.log("file",file);
 
+
     dispatch(roomRegister({
       room: room,
       description: description,
@@ -129,6 +130,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="firstName"
             type="text"
+            placeholder='Owner Name'
             onChange={(e) =>setName(e.target.value)}
             onBlur={formik.handleBlur}
             value={houseowner}
@@ -142,6 +144,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
+            placeholder='Room Name'
             onChange={(e) =>setRoom(e.target.value)}
             onBlur={formik.handleBlur}
             value={room}
@@ -155,6 +158,7 @@ const HouseOwnerForm = () => {
             id="textarea"
             name="description"
             type="text"
+            placeholder='Description'
             onChange={(e) =>setDescription(e.target.value)}
             onBlur={formik.handleBlur}
             value={description}
@@ -168,6 +172,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="amount"
             type="text"
+            placeholder='Amount'
             onChange={(e) =>setAmount(e.target.value)}
             onBlur={formik.handleBlur}
             value={amount}
@@ -180,6 +185,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
+            placeholder='Beds'
             onChange={(e) =>setBeds(e.target.value)}
             onBlur={formik.handleBlur}
             value={beds}
@@ -194,6 +200,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
+            placeholder='Maximum Days to Book'
             onChange={(e) =>setMax(e.target.value)}
             onBlur={formik.handleBlur}
             value={max}
@@ -206,6 +213,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="lastName"
             type="text"
+            placeholder='Minimum Day to Book'
             onChange={(e) =>setMin(e.target.value)}
             onBlur={formik.handleBlur}
             value={min}
@@ -219,6 +227,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="email"
             type="text"
+            placeholder='House Number'
             onChange={(e) =>setHouse(e.target.value)}
             onBlur={formik.handleBlur}
             value={house}
@@ -232,6 +241,7 @@ const HouseOwnerForm = () => {
             id="normal"
             name="amenities"
             type="text"
+            placeholder='Amenities'
             onChange={(e) =>setAmenitiesInfo(e.target.value)}
             onBlur={formik.handleBlur}
             value={amenities}
@@ -295,6 +305,7 @@ const HouseOwnerForm = () => {
             className="input"
             value={size}
             type="text"
+            placeholder='Floor Size'
             onChange={(e) =>setFloor(e.target.value)}
           />
         </div>

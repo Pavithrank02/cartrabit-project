@@ -9,11 +9,12 @@
 .ownerform {
   display: flex;
   flex-direction: row;
-  background-color: rgb(245, 245, 245);
+  background-color: rgba(120, 8, 247, 0.966);
   border-radius: 20px;
   width: 50vw;
   height: 70vh;
   border: 1px solid rgba(255, 255, 255, 10);
+  color: white;
   
 }
 
@@ -49,7 +50,8 @@
   width: 200px;
   border:0;
   box-shadow:0 0 15px 4px rgba(0,0,0,0.1);
-  border-color: rgb(86, 42, 167);
+  border-radius: 10px;
+  border: 2px solid blueviolet;
 }
 #normal::selection{
   padding:10px;
@@ -67,13 +69,21 @@
   border: 0;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
   height: 100px;
+  border-radius: 10px;
+  border: 2px solid blueviolet;
 }
 button{
   margin-top: 30px;
   padding: 15px;
   width: 100px;
+  font-size: large;
+  font-weight: 600;
   border-radius: 10px;
+  background-color: rgb(86, 42, 167);
+  color: white;
+  border: 2px solid blueviolet;
 }
 label{
   margin-bottom: -15px;
 }
+
