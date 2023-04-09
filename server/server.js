@@ -402,12 +402,12 @@ app.post("/bookroom/:id", (req, res, next) => {
         throw error;
       }
       // return res.send({ data: results, message: "Users Fetch Successfully." });
-      console.log(results[0])
+      // console.log(results[0])
 
       // has hashed pw => add to database
+      console.log(results)
         dbConn.query(
-          `INSERT INTO room (startDay, endDay) VALUES (${dbConn.escape(req.body.startday
-          )}, ${dbConn.escape(req.body.endday)})`,
+          `UPDATE room SET startDay = ${dbConn.escape(req.body.startday)}, endDay = ${dbConn.escape(req.body.endday)} WHERE id = '${results[0].id}'`,
           (err, result) => {
             console.log(result)
             if (err) {

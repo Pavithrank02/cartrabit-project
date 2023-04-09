@@ -12,7 +12,7 @@ export const getFetch = createAsyncThunk("get-users/getFetch", async () => {
 // console.log("api",FETCH_API)
 export const apiSlice = createSlice({
   name: "api",
-  initialState: { id: "", name: "", email: "", password: "", city: "", phone: "", image: "", country: "", data: [], isLoading: false, room: "", description: "", houseowner: "", beds: "", amount: "", houseno: "", max: "", min: "", floor: "", amenities:"" },
+  initialState: { id: "", name: "", email: "", password: "", city: "", phone: "", image: "", country: "", data: [], isLoading: false, room: "", description: "", houseowner: "", beds: "", amount: "", houseno: "", max: "", min: "", floor: "", amenities:"", startday:"", endday:"" },
 
   reducers: {
 
@@ -324,6 +324,27 @@ export const apiSlice = createSlice({
         console.log(err.message);
       }
     },
+    bookroom: (state, action) => {
+      try {
+        state = action.payload;
+        const data = {
+          id:state.id,
+          startday: state.startday,
+          endday: state.endday,
+        }
+        axios
+          .post(`http://127.0.0.1:3000/bookroom/${data.id}`)
+          .then((response) => {
+            console.log(response)
+            alert("Room Booked Successfully");
+            // window.location.href = '/display'
+            // window.location.reload();
+            // Handle response
+          });
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
     updateuser: (state, action) => {
       try {
         state = action.payload;
@@ -381,5 +402,5 @@ export const apiSlice = createSlice({
 // }
 
 
-export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom, ownerregister, ownerlogin } = apiSlice.actions;
+export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom, ownerregister, ownerlogin, bookroom } = apiSlice.actions;
 export default apiSlice.reducer;
