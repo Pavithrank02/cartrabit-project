@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { fetchuser } from '../utills/apiSlice';
 import { useState } from 'react';
+import './Fileupload.css'
 
 const FileUpload = () => {
   const [file, setFile] = useState("");
@@ -21,7 +22,7 @@ const FileUpload = () => {
     }
   }
   return (
-    <div>
+    <div className='fileupload'>
       <label className="text-white">Select Photos :</label>
       <input
         type="file"

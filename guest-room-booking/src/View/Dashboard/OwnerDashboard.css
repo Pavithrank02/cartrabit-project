@@ -6,10 +6,10 @@
 .dashboard-container-right {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 75vw;
-  margin-top: 2rem;
+  margin-top: 3rem;
 
 }
 
@@ -23,4 +23,10 @@
 .dashboard-container-right-bot{
   margin-left: 10rem;
 
+}
+.dashboard-container-right-head{
+  margin-bottom: 0;
+}
+.dashboard-container-right-body{
+  /* margin-top: -40rem; */
 }

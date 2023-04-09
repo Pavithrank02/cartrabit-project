@@ -11,6 +11,7 @@ import OwnerRegistration from './components/Registration/OwnerRegistration'
 import './App.css';
 import RoomDetails from './View/RoomView/RoomDetails';
 import FileUpload from './components/FileUpload';
+import OwnerGallery from './View/Dashboard/OwnerGallery';
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
         <Route path="/ownerregister" element={<OwnerRegistration />} />
         <Route path="/booking/:id" element={<CustomerBooking />} />
         <Route path="/dashboard/:name" element={<OwnerDashboard />} />
+        <Route path="/gallery/:name" element={<OwnerGallery />} />
         <Route path="/registerroom/:name" element={<OwnerRegisterPage />} />
         <Route path="/roomlist" element={<RoomsView />} />
         <Route path="/viewdetails/:id" element={<RoomDetails />} />

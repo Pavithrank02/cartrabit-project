@@ -1,0 +1,20 @@
+.fileupload{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid lightgray;
+  width: 50vw;
+  height: 10vh;
+}
+.fileupload label{
+  color: rgb(0, 0, 0);
+  font-size: large;
+  font-weight: 600;
+  margin-top: -1rem;
+
+}
+.fileupload button{
+  margin-top: -0.3rem;
+}
