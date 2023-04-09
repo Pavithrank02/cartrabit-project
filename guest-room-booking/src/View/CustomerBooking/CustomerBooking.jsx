@@ -30,74 +30,74 @@ const CustomerBooking = (props) => {
   };
 
   const getUpdatedDate = (dateArray) => {
-    console.log("dateinparent",dateArray)
+    console.log("dateinparent", dateArray)
     setgetDate(dateArray)
 
   }
 
   const handleSubmit = () => {
-    
+
   }
 
   return (
     <div className='background'>
-      <div className='booking-card'>
-        <div className='booking-card-head'>
-          <Header />
-        </div>
-        <div className='booking-card-header'>
-          <div className='contents'>
-            <h1>Book Your Stay with Rooms</h1>
-            <p>Over 20 Rooms are Available for now</p>
-            <img src={img} className='booking-card-img' alt="room" />
+      <div className='booking'>
+        <div className='booking-card'>
+          <div className='booking-card-head'>
+            <Header />
           </div>
-        </div>
-        <div className='rooms-selector'>
-          <div className='frame'>
-            <p>{data && data.data[0].house_owner}</p>
-            <select id="field" name="Owners">
-              <option value="John">{data && data.data[0].house_owner}</option>
-              {/* <option value="Andrew">Andrew</option> */}
-            </select>
-          </div>
-          <div className='frame2'>
-            <div className='container'>
-              <p>Adults</p>
-              <select id="field1" name="Owners">
-                <option value="John">1</option>
-                <option value="Andrew">2</option>
-                <option value="Andrew">3</option>
-              </select>
+          <div className='booking-card-header'>
+            <div className='contents'>
+              <h1>Book Your Stay with Rooms</h1>
+              <p>Over 20 Rooms are Available for now</p>
+              <img src={img} className='booking-card-img' alt="room" />
             </div>
-            <div className='container'>
-              <p>Childrens</p>
-              <select id="field1" name="Owners">
-                <option value="John">1</option>
-                <option value="Andrew">2</option>
-              </select>
+            <div className='rooms-selector'>
+              <div className='frame'>
+                <p>{data && data.data[0].house_owner}</p>
+                <select id="field" name="Owners">
+                  <option value="John">{data && data.data[0].house_owner}</option>
+                  {/* <option value="Andrew">Andrew</option> */}
+                </select>
+              </div>
+              <div className='frame2'>
+                <div className='container'>
+                  <p>Adults</p>
+                  <select id="field1" name="Owners">
+                    <option value="John">1</option>
+                    <option value="Andrew">2</option>
+                    <option value="Andrew">3</option>
+                  </select>
+                </div>
+                <div className='container'>
+                  <p>Childrens</p>
+                  <select id="field1" name="Owners">
+                    <option value="John">1</option>
+                    <option value="Andrew">2</option>
+                  </select>
+                </div>
+              </div>
+              <div className='frame3'>
+                <p>Rooms</p>
+                <select id="field" name="Owners">
+                  <option value="John">1</option>
+                  <option value="Andrew">2</option>
+                  <option value="John">1</option>
+                  <option value="Andrew">2</option>
+                </select>
+              </div>
+              <div className='frame4'>
+                <button onClick={handleSubmit}>Book</button>
+              </div>
             </div>
           </div>
-          <div className='frame3'>
-            <p>Rooms</p>
-            <select id="field" name="Owners">
-              <option value="John">1</option>
-              <option value="Andrew">2</option>
-              <option value="John">1</option>
-              <option value="Andrew">2</option>
-            </select>
-          </div>
-          <div className='frame4'>
-            <button onClick={handleSubmit}>Book</button>
+          <div className='ad'>
+            <ImageSlider />
+            <CalenderComponent getUpdatedDate={getUpdatedDate} data={data} />
           </div>
         </div>
-        <div className='ad'>
-          <ImageSlider />
-        </div>
-        <div className='calendar'>
-        <CalenderComponent getUpdatedDate={getUpdatedDate} data={data}/>
-        </div>
-
       </div>
+
     </div>
   )
 }
