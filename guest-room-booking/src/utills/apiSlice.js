@@ -34,12 +34,15 @@ export const apiSlice = createSlice({
       }
 
     },
-    fetchuser: (state, action) => {
+    imageupload: (state, action) => {
 
       try {
         console.log(action)
         state = action.payload;
-        const data = state.data
+        const data = {
+          name: state.name,
+          data: state.data
+        }
         console.log("data",data)
         const config = {
           headers: {
@@ -402,5 +405,5 @@ export const apiSlice = createSlice({
 // }
 
 
-export const { deleteuser, login, register, updateuser, fetchuser, fetchApi, roomRegister, getroom, ownerregister, ownerlogin, bookroom } = apiSlice.actions;
+export const { deleteuser, login, register, updateuser, imageupload, fetchApi, roomRegister, getroom, ownerregister, ownerlogin, bookroom } = apiSlice.actions;
 export default apiSlice.reducer;

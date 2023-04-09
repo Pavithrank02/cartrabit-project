@@ -25,7 +25,7 @@ const Sidebar = () => {
             Gallery
           </h3>
         </Link>
-        <Link to={`/profile/${params.name}}`} style={{ textDecoration: 'none',  }}>
+        <Link to={`/profile/${params.name}`} style={{ textDecoration: 'none',  }}>
           <h3>
             Profile
           </h3>
