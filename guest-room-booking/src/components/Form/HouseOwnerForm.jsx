@@ -106,9 +106,11 @@ const HouseOwnerForm = () => {
 
   const handleFile = (e) => {
     setFile(e.target.files)
+    const imgFile = e.target.files
     console.log("files", e.target.files);
     const fData = new FormData();
-    fData.append('images', file);
+    fData.append('file', imgFile);
+    fData.append("fileName", imgFile[0].name)
     try {
       dispatch(fetchuser({
         data: fData

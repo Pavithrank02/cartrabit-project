@@ -22,7 +22,7 @@ const CalenderComponent = props => {
 
   const handleDateChange = (e) =>{
     console.log("calenderchange",e)
-    // setDate()
+    setDate(e)
     props.getUpdatedDate(e)
   }
 

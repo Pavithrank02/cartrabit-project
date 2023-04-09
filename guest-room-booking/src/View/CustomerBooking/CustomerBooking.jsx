@@ -36,9 +36,7 @@ const CustomerBooking = (props) => {
   }
 
   const handleSubmit = () => {
-    if(data && data.data[0].maxDay ){
-      
-    }
+    
   }
 
   return (

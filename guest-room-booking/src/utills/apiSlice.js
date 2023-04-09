@@ -39,10 +39,15 @@ export const apiSlice = createSlice({
       try {
         console.log(action)
         state = action.payload;
-        const data = state.image
-        // console.log("data",data)
+        const data = state.data
+        console.log("data",data)
+        const config = {
+          headers: {
+            'content-type': 'multipart/form-data',
+          },
+        };
         axios.post(
-          "http://127.0.0.1:3000/profile-upload-single", data
+          "http://127.0.0.1:3000/profile-upload-single", data, config
 
         );
 
