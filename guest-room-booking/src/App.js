@@ -8,11 +8,11 @@ import OwnerRegisterPage from './View/Dashboard/OwnerRegisterPage'
 import RoomsView from './View/RoomView/RoomsView';
 import OwnerDashboard from './View/Dashboard/OwnerDashboard';
 import OwnerRegistration from './components/Registration/OwnerRegistration'
-import './App.css';
 import RoomDetails from './View/RoomView/RoomDetails';
 import FileUpload from './components/FileUpload';
 import OwnerGallery from './View/Dashboard/OwnerGallery';
 import OwnerProfile from './View/Dashboard/OwnerProfile';
+import './App.css';
 function App() {
   return (
     <div className="App">
@@ -28,7 +28,6 @@ function App() {
         <Route path="/registerroom/:name" element={<OwnerRegisterPage />} />
         <Route path="/roomlist" element={<RoomsView />} />
         <Route path="/viewdetails/:id" element={<RoomDetails />} />
-
         <Route path="/file" element={<FileUpload />} />
 
       </Routes>
