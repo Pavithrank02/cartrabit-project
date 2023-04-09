@@ -94,7 +94,7 @@ const CustomerBooking = (props) => {
           <ImageSlider />
         </div>
         <div className='calendar'>
-        <CalenderComponent getUpdatedDate={getUpdatedDate}/>
+        <CalenderComponent getUpdatedDate={getUpdatedDate} data={data}/>
         </div>
 
       </div>
