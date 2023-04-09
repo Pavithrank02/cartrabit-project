@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { imageupload } from '../utills/apiSlice';
+import { imageupload } from '../../utills/apiSlice';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Fileupload.css'

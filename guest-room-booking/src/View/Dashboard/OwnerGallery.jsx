@@ -3,7 +3,7 @@ import HouseOwnerForm from '../../components/Form/HouseOwnerForm'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import DashboardHeader from '../../components/Headers/DashboardHeader/DashboardHeader'
 import './OwnerDashboard.css'
-import FileUpload from '../../components/FileUpload'
+import FileUpload from '../../components/Fileupload/FileUpload'
 
 const OwnerGallery = () => {
   return (

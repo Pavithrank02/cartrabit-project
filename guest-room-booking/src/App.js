@@ -9,7 +9,7 @@ import RoomsView from './View/RoomView/RoomsView';
 import OwnerDashboard from './View/Dashboard/OwnerDashboard';
 import OwnerRegistration from './components/Registration/OwnerRegistration'
 import RoomDetails from './View/RoomView/RoomDetails';
-import FileUpload from './components/FileUpload';
+import FileUpload from './components/Fileupload/FileUpload';
 import OwnerGallery from './View/Dashboard/OwnerGallery';
 import OwnerProfile from './View/Dashboard/OwnerProfile';
 import './App.css';
