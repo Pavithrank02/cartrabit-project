@@ -388,6 +388,44 @@ app.get("/get-rooms/:name", signupValidation, (req, res, next) => {
 }
   // }
 );
+
+//book rooms
+
+app.post("/bookroom/:id", (req, res, next) => {
+  // console.log(req)
+  const user_id = req.params.id
+  dbConn.query(
+    "SELECT * FROM room WHERE id=?",
+    user_id,
+    function (error, results, fields) {
+      if (error) {
+        throw error;
+      }
+      // return res.send({ data: results, message: "Users Fetch Successfully." });
+      console.log(results[0])
+
+      // has hashed pw => add to database
+        dbConn.query(
+          `INSERT INTO room (startDay, endDay) VALUES (${dbConn.escape(req.body.startday
+          )}, ${dbConn.escape(req.body.endday)})`,
+          (err, result) => {
+            console.log(result)
+            if (err) {
+              throw err;
+              return res.status(400).send({
+                msg: err,
+              });
+            }
+            return res.status(201).send({
+              msg: "The room has been booked with us!",
+            });
+          }
+        );
+    }
+  )
+}
+
+);
   app.post("/get-user", signupValidation, (req, res, next) => {
     // const token = req.headers.authorization
   
