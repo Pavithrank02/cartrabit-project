@@ -13,8 +13,6 @@ import './Owner.css'
 //   } else if (values.firstName.length > 15) {
 //     errors.firstName = 'Must be 15 characters or less';
 //   }
-
-
 //   if (!values.lastName) {
 //     errors.lastName = 'Required';
 //   } else if (values.lastName.length > 20) {
