@@ -41,7 +41,7 @@ const CalenderComponent = props => {
         if ((range2.contains(range, true) || range.contains(range2, true)) && !date1[0].isSame(date2[0]))
           alert("time range 1 is completely conflict with time range 2 and vice versa");
         else
-          alert("time range 1 is partially conflict with time range 2 and vice versa");
+          alert("");
   
       } else {
         console.log("before dispatch", startDate, endDate)
