@@ -39,7 +39,7 @@ var dbConn = mysql.createConnection({
 dbConn.connect();
 
 //Register User
-app.post("/customer-register", signupValidation, (req, res, next) => {
+app.post("/customer_register", signupValidation, (req, res, next) => {
   // console.log(req)
   dbConn.query(
     `SELECT * FROM customer WHERE LOWER(email) = LOWER(${dbConn.escape(
@@ -61,8 +61,7 @@ app.post("/customer-register", signupValidation, (req, res, next) => {
           } else {
             // has hashed pw => add to database
             dbConn.query(
-              `INSERT INTO customer (name, email, password) VALUES ('${
-                req.body.name
+              `INSERT INTO customer (name, email, password) VALUES ('${req.body.name
               }', ${dbConn.escape(req.body.email)}, ${dbConn.escape(
                 req.body.password
               )})`,
@@ -87,7 +86,7 @@ app.post("/customer-register", signupValidation, (req, res, next) => {
 
 //Register Owner
 app.post("/owner-register", signupValidation, (req, res, next) => {
-  // console.log(req)
+  console.log(req)
   dbConn.query(
     `SELECT * FROM house_owner WHERE LOWER(email) = LOWER(${dbConn.escape(
       req.body.email
@@ -108,8 +107,7 @@ app.post("/owner-register", signupValidation, (req, res, next) => {
           } else {
             // has hashed pw => add to database
             dbConn.query(
-              `INSERT INTO house_owner (name, email, password) VALUES ('${
-                req.body.name
+              `INSERT INTO house_owner (name, email, password) VALUES ('${req.body.name
               }', ${dbConn.escape(req.body.email)}, ${dbConn.escape(
                 req.body.password
               )})`,
@@ -133,28 +131,42 @@ app.post("/owner-register", signupValidation, (req, res, next) => {
 });
 
 //Room registration
-app.post("/room_register", signupValidation, (req, res, next) => {
+app.post("/room_register", (req, res, next) => {
   // console.log(req)
-            // has hashed pw => add to database
-            dbConn.query(
-              `INSERT INTO room (room_no, Description, house_owner, beds, amount, houseNo, maxDay, minDay, floor) VALUES ('${req.body.room
-              }', ${dbConn.escape(req.body.description)}, ${dbConn.escape(
-                req.body.houseowner
-              )}, ${dbConn.escape(req.body.beds)}, ${dbConn.escape(req.body.amount)} , ${dbConn.escape(req.body.houseno)}, ${dbConn.escape(req.body.max)}, ${dbConn.escape(req.body.min)}, ${dbConn.escape(req.body.floor)})`,
-              (err, result) => {
-                if (err) {
-                  throw err;
-                  return res.status(400).send({
-                    msg: err,
-                  });
-                }
-                return res.status(201).send({
-                  msg: "The room has been registerd with us!",
-                });
-              }
-            );
+  // has hashed pw => add to database
+  dbConn.query(
+    `SELECT * FROM room WHERE room_no = ${dbConn.escape(
+      req.body.room
+    )};`,
+    (err, result) => {
+      console.log(result)
+      if (result.length) {
+        // console.log(result)
+        return res.status(409).send({
+          msg: "This room is already in use!",
+        });
+      } else {
+        dbConn.query(
+          `INSERT INTO room (room_no, Description, house_owner, beds, amount, houseNo, amenities, maxDay, minDay, floor ) VALUES (${dbConn.escape(req.body.room
+          )}, ${dbConn.escape(req.body.description)}, ${dbConn.escape(
+            req.body.houseowner
+          )}, ${dbConn.escape(req.body.beds)}, ${dbConn.escape(req.body.amount)} , ${dbConn.escape(req.body.houseno)}, ${dbConn.escape(req.body.amenities)}, ${dbConn.escape(req.body.max)}, ${dbConn.escape(req.body.min)}, ${dbConn.escape(req.body.floor)})`,
+          (err, result) => {
+            if (err) {
+              throw err;
+              return res.status(400).send({
+                msg: err,
+              });
+            }
+            return res.status(201).send({
+              msg: "The room has been registerd with us!",
+            });
           }
         );
+      }
+    }
+  );
+})
 //JWT Login
 app.post("/login", loginValidation, (req, res, next) => {
   console.log(req)
@@ -406,26 +418,28 @@ app.post("/bookroom/:id", (req, res, next) => {
 
       // has hashed pw => add to database
       console.log(results)
-        dbConn.query(
-          `UPDATE room SET startDay = ${dbConn.escape(req.body.startday)}, endDay = ${dbConn.escape(req.body.endday)} WHERE id = '${results[0].id}'`,
-          (err, result) => {
-            console.log(result)
-            if (err) {
-              throw err;
-              return res.status(400).send({
-                msg: err,
-              });
-            }
-            return res.status(201).send({
-              msg: "The room has been booked with us!",
+      dbConn.query(
+        `UPDATE room SET startDay = ${dbConn.escape(req.body.startday)}, endDay = ${dbConn.escape(req.body.endday)} WHERE id = '${results[0].id}'`,
+        (err, result) => {
+          console.log(result)
+          if (err) {
+            throw err;
+            return res.status(400).send({
+              msg: err,
             });
           }
-        );
+          return res.status(201).send({
+            msg: "The room has been booked with us!",
+          });
+        }
+      );
     }
   )
 }
 
 );
+
+//Update Room
 app.put("/update-room", signupValidation, (req, res, next) => {
   // console.log(res)
 
@@ -464,7 +478,7 @@ app.put("/update-room", signupValidation, (req, res, next) => {
 // }
 );
 
-     
+    //Multer Storage 
   const storage = multer.diskStorage({
       destination: function(req, file, cb) {
           cb(null, './uploads');
