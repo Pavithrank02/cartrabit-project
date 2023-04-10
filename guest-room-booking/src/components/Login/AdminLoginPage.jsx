@@ -16,12 +16,10 @@ const AdminLoginPage = () => {
 
   console.log("datas", data)
 
-  // const dispatch = useDispatch()
-
   useEffect(() => {
 
     fetchApi();
-    console.log("data",data)
+    console.log("data", data)
   }, []);
   const fetchApi = async () => {
     const response = await fetch("http://127.0.0.1:3000/get-user");
@@ -38,7 +36,7 @@ const AdminLoginPage = () => {
       email: email,
       password: password
     }))
-  
+
     setEmail("");
     setPassword("")
     // Navigate(`/dashboard/${}`)
@@ -47,26 +45,26 @@ const AdminLoginPage = () => {
   };
   return (
     <>
-    <Background />
-    <div className='Card'>
-      <div className='Card_header'>
-        <div className='Card-text-A'>
-          <Link to='/'>
-            Admin Login
-          </Link>
+      <Background />
+      <div className='Card'>
+        <div className='Card_header'>
+          <div className='Card-text-A'>
+            <Link to='/'>
+              Admin Login
+            </Link>
+          </div>
+          <div className='Card-text-C'>
+            <Link to='/customer'>
+              Customer Login
+            </Link>
+          </div>
         </div>
-        <div className='Card-text-C'>
-          <Link to='/customer'>
-            Customer Login
-          </Link>
-        </div>
-      </div>
-      <div className='Card_body'>
-        <div className="right">
-          <h1>Sign in your account!</h1>
-          <p>Login with your personal details for continue</p>
-          <form>
-          <input
+        <div className='Card_body'>
+          <div className="right">
+            <h1>Sign in your account!</h1>
+            <p>Login with your personal details for continue</p>
+            <form>
+              <input
                 style={{
                   width: "80%",
                   padding: "15px",
@@ -99,30 +97,30 @@ const AdminLoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               // onChange={handleChange}
               />
-            <button type="submit" onClick={handleSubmit}>
+              <button type="submit" onClick={handleSubmit}>
                 Login
               </button>
-            {/* {error && <span>{error.message}</span>} */}
-          </form>
-        </div>
-        <div className="left">
-          <h1>New to the Website!</h1>
-          <p> Signup to Create New Account</p>
-          <span style={{ padding: "20px 0" }}>Click the Button Below</span>
+              {/* {error && <span>{error.message}</span>} */}
+            </form>
+          </div>
+          <div className="left">
+            <h1>New to the Website!</h1>
+            <p> Signup to Create New Account</p>
+            <span style={{ padding: "20px 0" }}>Click the Button Below</span>
 
-          <button>
-            <Link
-            to="/ownerregister"
-            style={{ color: "inherit", textDecoration: "none" }}
-          >
-            Sign Up
-            </Link>
-          </button>
+            <button>
+              <Link
+                to="/ownerregister"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                Sign Up
+              </Link>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </>
-    
+    </>
+
   )
 }
 

@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { imageupload } from '../../utills/apiSlice';
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { imageupload } from '../../utills/apiSlice';
 import './Fileupload.css'
 
 const FileUpload = () => {
@@ -14,7 +13,7 @@ const FileUpload = () => {
   const handleFile = () => {
     const fData = new FormData();
     fData.append('file', file[0].name);
-    console.log("file", file)
+    // console.log("file", file)
     fData.append("fileName", file[0])
     try {
       dispatch(imageupload({

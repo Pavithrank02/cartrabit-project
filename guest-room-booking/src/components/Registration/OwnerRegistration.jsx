@@ -66,11 +66,8 @@ const OwnerRegistration = () => {
         name: name,
         email: email,
         password: password,
-        // city:city,
         phone: phone,
-        // image: file[0].name,
-        // address:address
-        
+
       }));
       setError(false);
 
@@ -153,7 +150,7 @@ const OwnerRegistration = () => {
                 onChange={handlePassword}
               />
 
-              <button onClick={handleSubmit}  type="submit">
+              <button onClick={handleSubmit} type="submit">
                 Sign up
               </button>
               {/* {error && <span>{error.message}</span>} */}

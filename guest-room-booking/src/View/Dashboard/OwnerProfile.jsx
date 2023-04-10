@@ -12,7 +12,7 @@ const OwnerProfile = () => {
       </div>
       <div className='dashboard-container-right'>
         <div className='dashboard-container-right-head'>
-        <DashboardHeader />
+          <DashboardHeader />
         </div>
         <div className='dashboard-container-right-body'>
           <UpdateRoomDetails />

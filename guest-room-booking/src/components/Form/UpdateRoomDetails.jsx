@@ -1,55 +1,11 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { updateuser } from '../../utills/apiSlice';
 import { useDispatch } from 'react-redux';
-import './Owner.css'
 import { useParams } from 'react-router-dom';
-
-// const validate = values => {
-
-//   const errors = {};
-
-//   if (!values.firstName) {
-//     errors.firstName = 'Required';
-//   } else if (values.firstName.length > 15) {
-//     errors.firstName = 'Must be 15 characters or less';
-//   }
-//   if (!values.lastName) {
-//     errors.lastName = 'Required';
-//   } else if (values.lastName.length > 20) {
-//     errors.lastName = 'Must be 20 characters or less';
-//   }
-//   if (!values.description) {
-//     errors.description = 'Required';
-//   } else if (values.description.length < 20) {
-//     errors.lastName = 'Must be 20 characters or greater';
-//   }
-
-//   if (!values.email) {
-//     errors.email = 'Required';
-//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-//     errors.email = 'Invalid email address';
-//   }
-
-//   return errors;
-// };
-
-// initialState = {
-//   houseowner: "",
-//   room: "",
-//   house:"",
-//   description:"",
-//   amount:"",
-//   beds:"",
-//   max:"",
-//   min:"",
-//   size:"",
-//   file:"",
-//   amenities:""
-// }
+import { updateuser } from '../../utills/apiSlice';
+import './Owner.css'
 const UpdateRoomDetails = () => {
 
-  // const [isChecked, setIsChecked] = useState(initialState);
   const params = useParams()
   const [houseowner, setName] = useState("");
   const [room, setRoom] = useState("");
@@ -62,26 +18,6 @@ const UpdateRoomDetails = () => {
   const [size, setFloor] = useState("");
   const [amenities, setAmenitiesInfo] = useState("");
   const dispatch = useDispatch();
-
-  // console.log("val", val)
-
-  // const handleOnChange = (e) => {
-  //   const { value, checked } = e.target;
-  //   const { selected } = amenitiesinfo;
-  //   console.log(`${value} is ${checked}`);
-  //   // console.log(value)
-  //   if (checked) {
-  //     setAmenitiesInfo({
-  //       selected: [...selected, value],
-  //       amenities: [...selected, value],
-  //     });
-  //   } else {
-  //     setAmenitiesInfo({
-  //       selected: selected.filter((e) => e !== value),
-  //       amenities: selected.filter((e) => e !== value),
-  //     });
-  //   }
-  // };
 
 
   const handleSubmit = () => {

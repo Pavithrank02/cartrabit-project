@@ -2,9 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import { useDispatch } from 'react-redux';
-import { bookroom } from '../../utills/apiSlice';
-import Moment from 'moment';
 import { extendMoment } from 'moment-range';
+import Moment from 'moment';
+import { bookroom } from '../../utills/apiSlice';
 import './Calender.css'
 
 

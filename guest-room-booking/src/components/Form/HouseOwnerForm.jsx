@@ -4,51 +4,8 @@ import { roomRegister, fetchuser } from '../../utills/apiSlice';
 import { useDispatch } from 'react-redux';
 import './Owner.css'
 
-// const validate = values => {
-
-//   const errors = {};
-
-//   if (!values.firstName) {
-//     errors.firstName = 'Required';
-//   } else if (values.firstName.length > 15) {
-//     errors.firstName = 'Must be 15 characters or less';
-//   }
-//   if (!values.lastName) {
-//     errors.lastName = 'Required';
-//   } else if (values.lastName.length > 20) {
-//     errors.lastName = 'Must be 20 characters or less';
-//   }
-//   if (!values.description) {
-//     errors.description = 'Required';
-//   } else if (values.description.length < 20) {
-//     errors.lastName = 'Must be 20 characters or greater';
-//   }
-
-//   if (!values.email) {
-//     errors.email = 'Required';
-//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-//     errors.email = 'Invalid email address';
-//   }
-
-//   return errors;
-// };
-
-// initialState = {
-//   houseowner: "",
-//   room: "",
-//   house:"",
-//   description:"",
-//   amount:"",
-//   beds:"",
-//   max:"",
-//   min:"",
-//   size:"",
-//   file:"",
-//   amenities:""
-// }
 const HouseOwnerForm = () => {
 
-  // const [isChecked, setIsChecked] = useState(initialState);
   const [houseowner, setName] = useState("");
   const [room, setRoom] = useState("");
   const [house, setHouse] = useState("");
@@ -61,29 +18,9 @@ const HouseOwnerForm = () => {
   const [amenities, setAmenitiesInfo] = useState("");
   const dispatch = useDispatch();
 
-  // console.log("val", val)
-
-  // const handleOnChange = (e) => {
-  //   const { value, checked } = e.target;
-  //   const { selected } = amenitiesinfo;
-  //   console.log(`${value} is ${checked}`);
-  //   // console.log(value)
-  //   if (checked) {
-  //     setAmenitiesInfo({
-  //       selected: [...selected, value],
-  //       amenities: [...selected, value],
-  //     });
-  //   } else {
-  //     setAmenitiesInfo({
-  //       selected: selected.filter((e) => e !== value),
-  //       amenities: selected.filter((e) => e !== value),
-  //     });
-  //   }
-  // };
 
 
   const handleSubmit = () => {
-    // console.log("file",file);
 
 
     dispatch(roomRegister({
@@ -134,6 +71,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setName(e.target.value)}
             onBlur={formik.handleBlur}
             value={houseowner}
+            required
           />
           {/* {formik.touched.firstName && formik.errors.firstName ? (
             <div>{formik.errors.firstName}</div>
@@ -148,6 +86,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setRoom(e.target.value)}
             onBlur={formik.handleBlur}
             value={room}
+            required
           />
           {/* {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -162,6 +101,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setDescription(e.target.value)}
             onBlur={formik.handleBlur}
             value={description}
+            required
           />
           {/* {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -176,6 +116,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setAmount(e.target.value)}
             onBlur={formik.handleBlur}
             value={amount}
+            required
           />
           {/* {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -189,6 +130,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setBeds(e.target.value)}
             onBlur={formik.handleBlur}
             value={beds}
+            required
           />
           {/* {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -204,6 +146,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setMax(e.target.value)}
             onBlur={formik.handleBlur}
             value={max}
+            required
           />
           {/* {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -217,6 +160,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setMin(e.target.value)}
             onBlur={formik.handleBlur}
             value={min}
+            required
           />
           {/* {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -231,6 +175,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setHouse(e.target.value)}
             onBlur={formik.handleBlur}
             value={house}
+            required
           />
           {/* {formik.touched.lastName && formik.errors.lastName ? (
             <div>{formik.errors.lastName}</div>
@@ -245,6 +190,7 @@ const HouseOwnerForm = () => {
             onChange={(e) =>setAmenitiesInfo(e.target.value)}
             onBlur={formik.handleBlur}
             value={amenities}
+            required
           />
 
           {/* <label>Select your desired Amenities:</label>
@@ -307,6 +253,7 @@ const HouseOwnerForm = () => {
             type="text"
             placeholder='Floor Size'
             onChange={(e) =>setFloor(e.target.value)}
+            required
           />
         </div>
       </form>

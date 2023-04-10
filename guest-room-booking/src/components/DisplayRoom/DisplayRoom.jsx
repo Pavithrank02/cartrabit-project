@@ -1,53 +1,31 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import Update from "./Update";
 import { useDispatch } from "react-redux";
 import { deleteuser } from "../../utills/apiSlice";
-import { useSelector } from "react-redux";
 import './DisplayRoom.css'
 
 const DisplayRoom = () => {
   const [data, setData] = useState("");
   const params = useParams()
-  console.log("params",params)
   const Navigate = useNavigate()
-  console.log(data)
-
-  // console.log("datas", data.data.map(e => e))
 
   const dispatch = useDispatch()
 
   useEffect(() => {
 
     fetchApi();
-    
+
   }, []);
   const fetchApi = async () => {
     const response = await fetch(`http://127.0.0.1:3000/get-rooms/${params.name}`);
     const json = await response.json();
     setData(json)
-    // console.log(json)
   };
 
-  // const deleteHandle = (e, id) => {
-  //   console.log(e.target.value);
-  //   if(e.target.value){
-  //     axios
-  //     .delete(`http://127.0.0.1:3000/get-users/${e.target.value}`)
-  //     .then(response => {
-  //       // console.log(response)
-  //       console.log("deleted success")
-
-  //       // Handle response
-  //     })
-
-  //   }
-
-  // }
   const deleteHandle = (e, id) => {
     try {
       const id = e.target.value;
-      console.log("id",id)
+      // console.log("id",id)
       dispatch(
         deleteuser({
           id: id,
@@ -60,7 +38,7 @@ const DisplayRoom = () => {
   return (
     <div>
       <table>
-        <tr id="row" style={{background: 'linear-gradient(180deg, #4d4dff, #8533ff)'}}>
+        <tr id="row" style={{ background: 'linear-gradient(180deg, #4d4dff, #8533ff)' }}>
           <th>id</th>
           <th>Room No</th>
           <th>Description</th>

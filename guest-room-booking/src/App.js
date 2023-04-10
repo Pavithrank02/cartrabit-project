@@ -24,7 +24,7 @@ function App() {
         <Route path="/booking/:id" element={<CustomerBooking />} />
         <Route path="/dashboard/:name" element={<OwnerDashboard />} />
         <Route path="/gallery/:name" element={<OwnerGallery />} />
-        <Route path="/update/:id" element={<OwnerProfile/>} />
+        <Route path="/update/:id" element={<OwnerProfile />} />
         <Route path="/registerroom/:name" element={<OwnerRegisterPage />} />
         <Route path="/roomlist" element={<RoomsView />} />
         <Route path="/viewdetails/:id" element={<RoomDetails />} />

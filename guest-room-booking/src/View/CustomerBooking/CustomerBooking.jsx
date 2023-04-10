@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import img from '../../assets/image/0x0.jpg'
@@ -13,24 +13,18 @@ const CustomerBooking = (props) => {
   console.log(props)
   const Params = useParams()
   const navigate = useNavigate()
-  // console.log("params",Params)
   const [data, setData] = useState("");
   const [getDate, setgetDate] = useState("")
-  // console.log("data", data.data);
-
-  // const {id,house_owner, maxDay, minDay } = data.data[0]
 
   useEffect(() => {
 
     fetchApi();
-    // console.log(data)
   }, []);
 
   const fetchApi = async () => {
     const response = await fetch(`http://127.0.0.1:3000/get-room/${Params.id}`);
     const json = await response.json();
     setData(json)
-    // console.log(json)
   };
 
   const getUpdatedDate = (dateArray) => {
@@ -40,9 +34,9 @@ const CustomerBooking = (props) => {
   }
 
   const handleSubmit = () => {
-    toast('Booking successfully Completed', {autoClose:3000})
+    toast('Booking successfully Completed', { autoClose: 3000 })
     navigate(`./roomlist`)
-    
+
   }
 
   return (

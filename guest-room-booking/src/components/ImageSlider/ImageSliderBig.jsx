@@ -17,8 +17,8 @@ const ImageSliderBig = () => {
     },
   ];
   return (
-    <div style={{marginLeft: '4rem'}}>
-      <h3 style={{textAlign: 'center'}}>
+    <div style={{ marginLeft: '4rem' }}>
+      <h3 style={{ textAlign: 'center' }}>
         {" "}
         View Images of Rooms        </h3>
       <SimpleImageSlider

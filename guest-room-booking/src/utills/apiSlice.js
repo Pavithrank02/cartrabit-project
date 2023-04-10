@@ -14,7 +14,7 @@ export const getFetch = createAsyncThunk("get-users/getFetch", async () => {
 // console.log("api",FETCH_API)
 export const apiSlice = createSlice({
   name: "api",
-  initialState: { id: "", name: "", email: "", password: "", city: "", phone: "", image: "", country: "", data: [], isLoading: false, room: "", description: "", houseowner: "", beds: "", amount: "", houseno: "", max: "", min: "", floor: "", amenities:"", startday:"", endday:"" },
+  initialState: { id: "", name: "", email: "", password: "", city: "", phone: "", image: "", country: "", data: [], isLoading: false, room: "", description: "", houseowner: "", beds: "", amount: "", houseno: "", max: "", min: "", floor: "", amenities: "", startday: "", endday: "" },
 
   reducers: {
 
@@ -45,7 +45,7 @@ export const apiSlice = createSlice({
           name: state.name,
           data: state.data
         }
-        console.log("data",data)
+        console.log("data", data)
         const config = {
           headers: {
             'content-type': 'multipart/form-data',
@@ -61,55 +61,6 @@ export const apiSlice = createSlice({
       }
 
 
-      // console.log(type)
-      // console.log(payload)
-
-      // // console.log(action)
-      //   // const sD = state.data.push( action.payload.data.data)
-      //   // console.log("dd",sD)
-
-      //   // console.log("dis", action);
-
-      //   switch (type) {
-
-      //     case FETCH_API: {
-      //       console.log("dfd",payload)
-      //       return payload;
-
-      //     }
-      //     default:
-      //       return fetch;
-      //   }
-      // console.log("action",state, "dd",action)
-      // builder.addCase(fetchU.pending, (state, action) => {
-      //   state.isLoading =  true
-      // })
-      // builder.addCase(fetchU.fulfilled, (state, action) => {
-      //   state.isLoading =  false
-      //   state.data = action.payload
-      // })
-      // builder.addCase(fetchU.rejected, (state, action) => {
-      //   state.isLoading =  false
-      // })
-      //   state = action.payload;
-      //       const data = {
-      //         data: state.data 
-      //       }
-      //   axios
-      // .get("http://127.0.0.1:3000/get-users")
-      // .then(response => {
-      //   console.log("ss", response)
-      //   // state.data.push(response)
-      //   response.data.data.map((user => user));
-      //   // return response
-
-      //   // console.log(state.data)
-      //   // console.log(response.data)
-
-      //   // Handle response
-      // })
-
-
     },
     login: (state, action) => {
       try {
@@ -122,7 +73,7 @@ export const apiSlice = createSlice({
           .post("http://127.0.0.1:3000/login", data)
           .then((response) => {
             console.log(response);
-           
+
             // console.log(response.data.token);
             localStorage.setItem("key", response.data.token);
             const token = localStorage.getItem("key");
@@ -333,7 +284,7 @@ export const apiSlice = createSlice({
       try {
         state = action.payload;
         const data = {
-          id:state.id,
+          id: state.id,
           startday: state.startday,
           endday: state.endday,
         }

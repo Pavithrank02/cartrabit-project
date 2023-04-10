@@ -4,7 +4,7 @@ const ViewDetail = () => {
   return (
     <div>
       <ViewDetail />
-      </div>
+    </div>
   )
 }
 

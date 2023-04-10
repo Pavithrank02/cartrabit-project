@@ -13,8 +13,6 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -22,16 +20,6 @@ const Registration = () => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
 
-  // useEffect(() => {
-  //   fetchApi();
-  //   console.log(data);
-  // }, [data]);
-  // const fetchApi = async () => {
-  //   const response = await fetch("http://127.0.0.1:3000/login");
-  //   const json = await response.json();
-  //   setData(json);
-  //   console.log(json)
-  // };
   const errors = {
     uname: "invalid username",
     pass: "invalid password",
@@ -76,11 +64,8 @@ const Registration = () => {
         name: name,
         email: email,
         password: password,
-        // city:city,
         phone: phone,
-        // image: file[0].name,
-        // address:address
-        
+
       }));
       setError(false);
 
@@ -195,7 +180,7 @@ const Registration = () => {
                 onChange={handlePassword}
               />
 
-              <button onClick={handleSubmit}  type="submit">
+              <button onClick={handleSubmit} type="submit">
                 Sign up
               </button>
               {/* {error && <span>{error.message}</span>} */}

@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
-import { Range } from 'react-range'
 import './filter.css'
 
-
 const Filter = () => {
-  const [values, setValues] = useState("")
-
   return (
     <div className='filter-container'>
       <div>
         <h1>Filters</h1>
-        
+
         <input
           style={{
             width: "100%",
@@ -26,7 +22,7 @@ const Filter = () => {
           id="username"
           onChange={(e) => e.target.value}
         />
-        </div>
+      </div>
       <div className='slide'>
         <h3>
           Price

@@ -10,9 +10,6 @@ const RoomList = () => {
   const [data, setData] = useState("");
   const Navigate = useNavigate()
 
-  // console.log("datas", data.data.map(e => e))
-
-  // const dispatch = useDispatch()
 
   useEffect(() => {
     toast('Login successfully Completed')
@@ -20,20 +17,18 @@ const RoomList = () => {
       fetchApi();
 
     }, 1000)
-    // console.log(data)
   }, []);
   const fetchApi = async () => {
- 
+
     const response = await fetch("http://127.0.0.1:3000/get-rooms");
     const json = await response.json();
     setData(json)
-    // console.log(json)
   };
 
 
   return (
     <>
-     <ToastContainer />
+      <ToastContainer />
       {data && data.data.map((e) => {
         return (
           <div className='roomList-component'>
@@ -48,18 +43,18 @@ const RoomList = () => {
               <div className="middle">
                 <h3>Maximum Booking Days:</h3>
                 <p>{e.maxDay}</p>
-               <h3>Minimum Booking Day:</h3>
+                <h3>Minimum Booking Day:</h3>
                 <p>{e.minDay}</p>
 
               </div>
               <div className="bottom">
-              <p>Rs.{e.amount} </p>
-              <h3>65% off</h3>
-              <button onClick={() => Navigate(`/viewdetails/${e.id}`)}>View Details</button>
-              <button onClick={() => Navigate(`/booking/${e.id}`)}>Book</button>
+                <p>Rs.{e.amount} </p>
+                <h3>65% off</h3>
+                <button onClick={() => Navigate(`/viewdetails/${e.id}`)}>View Details</button>
+                <button onClick={() => Navigate(`/booking/${e.id}`)}>Book</button>
               </div>
             </div>
-           
+
           </div>
         )
       })}

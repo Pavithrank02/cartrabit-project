@@ -11,12 +11,12 @@ const Header = () => {
         Guest.com
       </div>
       <div className='search'>
-        <input type='text' placeholder='search' width='100px'/>
+        <input type='text' placeholder='search' width='100px' />
         <button>< FaSearch /></button>
       </div>
       <div className='icons'>
-      <FaUser style={{fontSize: '20px'}}/>
-      <p onClick={() => Navigate('/')}>{params.name}</p>
+        <FaUser style={{ fontSize: '20px' }} />
+        <p onClick={() => Navigate('/')}>{params.name}</p>
       </div>
     </div>
   )

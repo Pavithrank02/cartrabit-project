@@ -13,7 +13,7 @@ const DashboardHeader = () => {
         Guest.com
       </div>
       <div className='icons1'>
-        <FaUser style={{ fontSize: '20px' }} onClick={() => navigate('/')}/>
+        <FaUser style={{ fontSize: '20px' }} onClick={() => navigate('/')} />
         <p >{params.name}</p>
       </div>
     </div>

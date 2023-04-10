@@ -8,17 +8,12 @@ import Background from '../../components/Background/Background'
 import './Login.css'
 
 const CustomerLoginPage = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const controller = new AbortController();
-  const { signal } = controller;
   const dispatch = useDispatch()
 
 
   const handleSubmit = (e) => {
-    // Prevent the default submit and page reload
-
     e.preventDefault();
 
     dispatch(login({
@@ -42,7 +37,7 @@ const CustomerLoginPage = () => {
             </Link>
           </div>
           <div className='Card-text-C'>
-              Customer Login
+            Customer Login
           </div>
         </div>
         <div className='Card_body'>
