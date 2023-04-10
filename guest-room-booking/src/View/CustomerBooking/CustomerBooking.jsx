@@ -35,7 +35,7 @@ const CustomerBooking = (props) => {
 
   const handleSubmit = () => {
     toast('Booking successfully Completed', { autoClose: 3000 })
-    navigate(`./roomlist`)
+    navigate(`/roomlist`)
 
   }
 

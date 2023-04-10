@@ -136,7 +136,7 @@ export const apiSlice = createSlice({
             console.log(response);
             if (response.status === 201) {
               // console.log(window)
-              alert("user registered successfully!!Login into th user")
+              alert("Customer registered successfully!! Login into Account")
               window.location.reload()
               //   setSubmitted(true);
               //   navigate("/signin");
@@ -174,7 +174,7 @@ export const apiSlice = createSlice({
             console.log(response);
             if (response.status === 201) {
               // console.log(window)
-              alert("user registered successfully!!Login into th user")
+              alert("owner registered successfully!! Login into Account")
               // window.location.reload()
               //   setSubmitted(true);
               //   navigate("/signin");
@@ -220,7 +220,7 @@ export const apiSlice = createSlice({
             console.log(response);
             if (response.status === 201) {
               // console.log(window)
-              alert("user registered successfully!!Login into th user")
+              alert("Room has been registered successfully!!")
               window.location.reload()
               //   setSubmitted(true);
               //   navigate("/signin");
@@ -292,7 +292,7 @@ export const apiSlice = createSlice({
           .post(`http://127.0.0.1:3000/bookroom/${data.id}`, data)
           .then((response) => {
             console.log(response)
-            alert("Room Booked Successfully");
+            // alert("Room Booked Successfully");
             // window.location.href = '/display'
             // window.location.reload();
             // Handle response

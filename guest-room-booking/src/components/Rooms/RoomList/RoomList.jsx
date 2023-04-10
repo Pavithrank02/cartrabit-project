@@ -12,7 +12,7 @@ const RoomList = () => {
 
 
   useEffect(() => {
-    toast('Login successfully Completed')
+    // toast('Login successfully Completed')
     setTimeout(() => {
       fetchApi();
 
@@ -28,7 +28,7 @@ const RoomList = () => {
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       {data && data.data.map((e) => {
         return (
           <div className='roomList-component'>
@@ -43,8 +43,8 @@ const RoomList = () => {
               <div className="middle">
                 <h3>Maximum Booking Days:</h3>
                 <p>{e.maxDay}</p>
-                <h3>Minimum Booking Day:</h3>
-                <p>{e.minDay}</p>
+                <h3>Booked Till:</h3>
+                <p>{e.endDay}</p>
 
               </div>
               <div className="bottom">
