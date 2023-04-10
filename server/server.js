@@ -402,7 +402,6 @@ app.get("/get-rooms/:name", signupValidation, (req, res, next) => {
 );
 
 //book rooms
-
 app.post("/bookroom/:id", (req, res, next) => {
   // console.log(req)
   const user_id = req.params.id
