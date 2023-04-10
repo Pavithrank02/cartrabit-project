@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import APIService from "../services/apiService";
-import axios from "axios";
 
+import axios from "axios";
 
 export const getFetch = createAsyncThunk("get-users/getFetch", async () => {
   const res = await APIService.getAll();
@@ -120,7 +122,7 @@ export const apiSlice = createSlice({
           .post("http://127.0.0.1:3000/login", data)
           .then((response) => {
             console.log(response);
-            alert("login success")
+           
             // console.log(response.data.token);
             localStorage.setItem("key", response.data.token);
             const token = localStorage.getItem("key");

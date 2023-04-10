@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import { login } from "../../utills/apiSlice";
@@ -85,6 +86,7 @@ const CustomerLoginPage = () => {
               <button type="submit" onClick={handleSubmit}>
                 Login
               </button>
+              <ToastContainer />
               {/* {error && <span>{error.message}</span>} */}
             </form>
           </div>

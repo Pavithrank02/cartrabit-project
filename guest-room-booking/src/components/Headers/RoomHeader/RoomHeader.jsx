@@ -1,8 +1,10 @@
 import React from 'react'
 import './RoomHeader.css'
 import { FaHeart, FaSearch, FaUser } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const RoomHeader = () => {
+  const navigate = useNavigate()
   return (
     <div className='rooms-selector2'>
       <div className='Logo'>
@@ -44,8 +46,8 @@ const RoomHeader = () => {
         </div>
       </div>
       <div className='icons'>
-        <FaUser style={{ fontSize: '20px' }} />
-        <p>Customer</p>
+        <FaUser style={{ fontSize: '20px' }} onClick={navigate('/')}/>
+        <p >User</p>
       </div>
     </div>
   )

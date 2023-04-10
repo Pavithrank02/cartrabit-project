@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchApi } from '../../../utills/apiSlice'
 import { useDispatch } from "react-redux";
-
+import { ToastContainer, toast } from "react-toastify";
 import './RoomListComp.css'
 
 const RoomList = () => {
@@ -15,11 +15,15 @@ const RoomList = () => {
   // const dispatch = useDispatch()
 
   useEffect(() => {
+    toast('Login successfully Completed')
+    setTimeout(() => {
+      fetchApi();
 
-    fetchApi();
+    }, 1000)
     // console.log(data)
   }, []);
   const fetchApi = async () => {
+ 
     const response = await fetch("http://127.0.0.1:3000/get-rooms");
     const json = await response.json();
     setData(json)
@@ -29,6 +33,7 @@ const RoomList = () => {
 
   return (
     <>
+     <ToastContainer />
       {data && data.data.map((e) => {
         return (
           <div className='roomList-component'>
@@ -54,6 +59,7 @@ const RoomList = () => {
               <button onClick={() => Navigate(`/booking/${e.id}`)}>Book</button>
               </div>
             </div>
+           
           </div>
         )
       })}

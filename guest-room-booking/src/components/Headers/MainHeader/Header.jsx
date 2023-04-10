@@ -1,8 +1,10 @@
 import React from 'react'
 import './Header.css'
 import { FaHeart, FaSearch, FaUser } from "react-icons/fa";
+import { Navigate, useParams } from 'react-router-dom';
 
 const Header = () => {
+  const params = useParams()
   return (
     <div className='rooms-selector1'>
       <div className='Logo'>
@@ -14,7 +16,7 @@ const Header = () => {
       </div>
       <div className='icons'>
       <FaUser style={{fontSize: '20px'}}/>
-      <p>Customer</p>
+      <p onClick={Navigate('/')}>{params.name}</p>
       </div>
     </div>
   )

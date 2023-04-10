@@ -38,6 +38,7 @@
   justify-content: left; 
   align-items: right;
   right: 0;
+  cursor: pointer;
 
 }
 .icons p{

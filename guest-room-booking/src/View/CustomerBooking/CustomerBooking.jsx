@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import img from '../../assets/image/0x0.jpg'
 import ImageSlider from '../../components/ImageSlider/imageSlider'
 import CalenderComponent from '../../components/Calendar/CalenderComponent'
@@ -9,6 +12,7 @@ import './CustomerBooking.css'
 const CustomerBooking = (props) => {
   console.log(props)
   const Params = useParams()
+  const navigate = useNavigate()
   // console.log("params",Params)
   const [data, setData] = useState("");
   const [getDate, setgetDate] = useState("")
@@ -36,7 +40,9 @@ const CustomerBooking = (props) => {
   }
 
   const handleSubmit = () => {
-
+    toast('Booking successfully Completed', {autoClose:3000})
+    navigate(`./roomlist`)
+    
   }
 
   return (
