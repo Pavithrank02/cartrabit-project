@@ -41,7 +41,6 @@ const CustomerBooking = (props) => {
 
   return (
     <div className='background'>
-      <div className='booking'>
         <div className='booking-card'>
           <div className='booking-card-head'>
             <Header />
@@ -98,7 +97,6 @@ const CustomerBooking = (props) => {
         </div>
       </div>
 
-    </div>
   )
 }
 

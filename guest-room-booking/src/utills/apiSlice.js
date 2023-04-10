@@ -325,7 +325,8 @@ export const apiSlice = createSlice({
             .put(`http://127.0.0.1:3000/update-room`, data)
             .then((res) => {
               console.log(res.data);
-              // navigate("/");
+              alert("information update completed")
+              // window.location.href = `/dashboard/`;
               window.location.reload()
             })
             .catch((err) => {

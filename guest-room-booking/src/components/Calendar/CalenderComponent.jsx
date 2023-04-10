@@ -67,7 +67,6 @@ const CalenderComponent = props => {
     handleBooking()
     return (
       <div className='app'>
-        <h3>Check Date Availability</h3>
         <div>
           <Calendar 
           onChange={handleDateChange} 

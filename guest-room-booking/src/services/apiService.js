@@ -1,12 +1,13 @@
 import http from "../http-common";
 
-const getAll = () => {
+const login = () => {
   // console.log(httpCommon)
-  return http.get("/get-users");
+  return http.post("/login");
 };
 
 const APIService = {
-  getAll,
+  // getAll,
+  login, 
 };
 
 export default APIService;

@@ -9,7 +9,6 @@ import './RoomList.css'
 const RoomDetails = () => {
   const Params = useParams()
   const navigate = useNavigate()
-  // console.log("params",Params)
   const [data, setData] = useState("");
   console.log(data)
 
@@ -23,7 +22,6 @@ const RoomDetails = () => {
     const response = await fetch(`http://127.0.0.1:3000/get-room/${Params.id}`);
     const json = await response.json();
     setData(json)
-    // console.log(json)
   };
 
   return (
