@@ -27,7 +27,7 @@ table {
 }
 
 td {
-  background-color: #E4F5D4;
+  background-color: #ffffff;
   border: 1px solid black;
 }
 
@@ -41,4 +41,8 @@ td {
 
 td {
   font-weight: lighter;
+}
+#row{
+  background-color: blueviolet;
+  color: white;
 }

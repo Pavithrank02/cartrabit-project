@@ -46,7 +46,7 @@ const RoomHeader = () => {
         </div>
       </div>
       <div className='icons'>
-        <FaUser style={{ fontSize: '20px' }} onClick={navigate('/')}/>
+        <FaUser style={{ fontSize: '20px' }} onClick={() => navigate('/')}/>
         <p >User</p>
       </div>
     </div>

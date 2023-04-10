@@ -16,7 +16,7 @@ const Header = () => {
       </div>
       <div className='icons'>
       <FaUser style={{fontSize: '20px'}}/>
-      <p onClick={Navigate('/')}>{params.name}</p>
+      <p onClick={() => Navigate('/')}>{params.name}</p>
       </div>
     </div>
   )

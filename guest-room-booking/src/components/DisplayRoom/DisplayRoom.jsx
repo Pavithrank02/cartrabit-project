@@ -60,7 +60,7 @@ const DisplayRoom = () => {
   return (
     <div>
       <table>
-        <tr>
+        <tr id="row" style={{background: 'linear-gradient(180deg, #4d4dff, #8533ff)'}}>
           <th>id</th>
           <th>Room No</th>
           <th>Description</th>
@@ -77,7 +77,7 @@ const DisplayRoom = () => {
         </tr>
         {data &&
           data.data.map((user, i) => (
-            <tr>
+            <tr id="col">
               <td>{user.id}</td>
               <td>{user.room_no}</td>
               <td>{user.Description}</td>
