@@ -426,128 +426,44 @@ app.post("/bookroom/:id", (req, res, next) => {
 }
 
 );
-  app.post("/get-user", signupValidation, (req, res, next) => {
-    // const token = req.headers.authorization
-  
-    // if (!token) {
-    //   return res.status(403).send("A token is required for deletion");
-    // }
-    if (
-      !req.headers.authorization ||
-      !req.headers.authorization.startsWith("Bearer") ||
-      !req.headers.authorization.split(" ")[1]
-    ) {
-      return res.status(422).json({
-        message: "Please provide the token",
-      });
-    }
-    const theToken = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+app.put("/update-room", signupValidation, (req, res, next) => {
+  // console.log(res)
+
+  const user_id = req.params.id
+  // if (
+  //   !req.headers.authorization ||
+  //   !req.headers.authorization.startsWith("Bearer") ||
+  //   !req.headers.authorization.split(" ")[1]
+  // ) {
+  //   return res.status(422).json({
+  //     message: "Please provide the token",
+  //   });
+  // }
+  // const theToken = req.headers.authorization.split(" ")[1];
+  // // console.log(theToken)
+  // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
+  // console.log("data", req.body.name)
+  // if (req.headers.authorization) {
+
     dbConn.query(
-      "SELECT * FROM users1 where id=?",
-      decoded.id,
+      `SELECT * FROM room WHERE id = ${dbConn.escape(req.body.id)}`,
       function (error, results, fields) {
+        if(results[0].id){
+          dbConn.query(
+          `UPDATE room SET Description = ${dbConn.escape(req.body.description)} WHERE id = '${results[0].id}'`,
+          function (error, results, fields) {
+
+          }
+        )}
+        // console.log(decoded.name)
         if (error) throw error;
-        return res.send({ data: results[0], message: "Fetch Successfully." });
+        return res.send({ data: results, message: "Users updated Successfully." });
       }
     );
-  });
-  app.put("/get-users", signupValidation, (req, res, next) => {
-  
-  const user_id = req.params.id
-    if (
-      !req.headers.authorization ||
-      !req.headers.authorization.startsWith("Bearer") ||
-      !req.headers.authorization.split(" ")[1]
-    ) {
-      return res.status(422).json({
-        message: "Please provide the token",
-      });
-    }
-    const theToken = req.headers.authorization.split(" ")[1];
-    // console.log(theToken)
-    const decoded = jwt.verify(theToken, "the-super-strong-secrect");
-   console.log("data", req.body.name)
-    if(req.headers.authorization){
-      dbConn.query(
-        "UPDATE users1 SET email = ? WHERE id = ?",
-        [req.body.email, decoded.id],
-        function (error, results, fields) {
-          // console.log(decoded.name)
-          if (error) throw error;
-          return res.send({ data: results, message: "Users updated Successfully." });
-        }
-      );
-    }
-  });
-  app.get("/get-users", signupValidation, (req, res, next) => {
-    // const token = req.headers.authorization
-  
-    // if (!token) {
-    //   return res.status(403).send("A token is required for retrie");
-    // }
-    // // console.log(req.body)
-  
-    // if (
-    //   !req.headers.authorization ||
-    //   !req.headers.authorization.startsWith("Bearer") ||
-    //   !req.headers.authorization.split(" ")[1]
-    // ) {
-    //   return res.status(422).json({
-    //     message: "Please provide the token",
-    //   });
-    // }
-    // const theToken = req.headers.authorization.split(" ")[1];
-    // const decoded = jwt.verify(theToken, "the-super-strong-secrect");
-    // console.log(decoded)
-    // if(theToken){
-      // console.log(theToken)
-      dbConn.query(
-        "SELECT * FROM users1",
-        function (error, results, fields) {
-          // console.log(decoded.name)
-          if (error) throw error;
-          return res.send({ data: results, message: "Users Fetch Successfully." });
-        }
-      );
-    // }
-  });
-  app.get("/get-users/:id", signupValidation, (req, res, next) => {
-    const token = req.headers.authorization
-    const user_id = req.params.id
-    console.log(user_id)
-  
-    if (!token) {
-      return res.status(403).send("A token is required for retrie");
-    }
-    // console.log(req.body)
-  
-    if (
-      !req.headers.authorization ||
-      !req.headers.authorization.startsWith("Bearer") ||
-      !req.headers.authorization.split(" ")[1]
-    ) {
-      return res.status(422).json({
-        message: "Please provide the token",
-      });
-    }
-    const theToken = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(theToken, "the-super-strong-secrect");
-    console.log(decoded)
-    if(theToken){
-      console.log(theToken)
-      dbConn.query(
-        "SELECT * FROM users1 WHERE id=?",
-        user_id,
-        function (error, results, fields) {
-          // console.log(decoded.name)
-          if (error) throw error;
-          return res.send({ data: results, message: "Users Fetch Successfully." });
-        }
-      );
-    }
-  });
-  
+  }
+// }
+);
+
      
   const storage = multer.diskStorage({
       destination: function(req, file, cb) {
@@ -596,122 +512,6 @@ app.post("/bookroom/:id", (req, res, next) => {
           res.send({ message: "image added Successfully into database." });
       })
   });
-  // const storage = multer.diskStorage({
-  //   destination: function(req, file, cb) {
-  //       cb(null, './C:/xampp/htdocs/Test/CRUD/uploads');
-  //   },
-   
-  //   filename: function(req, file, cb) {
-  //     // console.log(req.headers)
-  //       cb(null, + '-' + Date.now() + (file.originalname));
-  //   }
-  // });
-   
-  // var upload = multer({ storage: storage })
-   
-  // app.get('/file', (req, res, next) => {
-  // res.sendFile(__dirname + '/index.html');
-  // });
-   
-  // app.post('/fileupload', upload.any('image'), (req, res) => {
-  // res.send({ message: "image added Successfully." });
-  // console.log(req.files)
-  // res.redirect('/file');
-  // });
-  // app.post("/post", upload.single('image'), (req, res) => {
-  // console.log(req.file)
-  // if (!req.file) {
-  //   console.log(req.file)
-  //     console.log("No file upload");
-  // } else {
-  
-  //     console.log(req.file.filename)
-  //     var imgsrc = 'http://127.0.0.1:3000/uploads/' + req.file.filename
-  //     var insertData = "UPDATE users1 SET images1 = ? "
-  //     dbConn.query(insertData, [imgsrc],  (err, result) => {
-  //         if (err) throw err;
-  //         console.log("file uploaded")
-  //         res.send({ path: req.file.path, message: "image added Successfully into database." });
-  //     })
-  // }
-  // });
-  // app.get('/', (req, res) => res.render('upload'))
-  // app.post('/uploads', function(req, res) {
-  // dbConn.query(`SELECT images1 FROM users1(images)VALUES(?)`, [req.filename], (err, result) => {
-  //   if (err) throw err;
-  //   console.log(result)
-  //   res.send({ image: result, message: "image added Successfully into database." });
-  // })
-  // })
-  // app.get('/image', (req, res, next) => {
-  // console.log(req)
-  // dbConn.query(`SELECT * FROM users1(images)VALUES(?)`, [req.filename], (err, result) => {
-  //   if (err) throw err;
-  //   console.log(result)
-  //   res.send({ image: result, message: "image added Successfully into database." });
-  // })
-  // });
-  
-  
-  
-  //auth
-  app.post("/api", auth, (req, res) => {
-    console.log(req.body);
-    return res.status(200).send({
-      msg: "connected",
-      user: req.body,
-    });
-  });
-  
-  app.post('/img',(req, res) => {
-    console.log(req)
-    // Parsing the URL
-    var request = url.parse(req.url, true);
-    
-    // Extracting the path of file
-    var action = request.pathname;
-  
-    // Path Refinements
-    var filePath = path.join(__dirname,
-            action).split("%20").join(" ");
-  
-    // Checking if the path exists
-    fs.exists(filePath, function (exists) {
-      console.log(filePath)
-  
-        if (!exists) {
-            res.writeHead(404, {
-                "Content-Type": "text/plain" });
-            res.end("404 Not Found");
-            return;
-        }
-  
-        // Extracting file extension
-        var ext = path.extname(action);
-  
-        // Setting default Content-Type
-        var contentType = "text/plain";
-  
-        // Checking if the extension of
-        // image is '.png'
-        if (ext === ".jpg") {
-            contentType = "image/jpg";
-        }
-  
-        // Setting the headers
-        res.writeHead(200, {
-            "Content-Type": contentType });
-  
-        // Reading the file
-        fs.readFile(filePath,
-            function (err, content) {
-                // Serving the image
-                res.end(content);
-            });
-    });
-  })
-  
-
 
 // set port
 app.listen(3000, function () {

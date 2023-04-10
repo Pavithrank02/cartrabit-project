@@ -93,7 +93,7 @@ const DisplayRoom = () => {
                 <button
                   className="btn-1"
                   value={user.id}
-                  // onClick={updateHandle}
+                  onClick={() => Navigate(`/update/${user.id}`)}
                 >
                   Update
                 </button>

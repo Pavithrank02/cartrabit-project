@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import DashboardHeader from '../../components/Headers/DashboardHeader/DashboardHeader'
 import './OwnerDashboard.css'
+import UpdateRoomDetails from '../../components/Form/UpdateRoomDetails'
 
 const OwnerProfile = () => {
   return (
@@ -14,6 +15,7 @@ const OwnerProfile = () => {
         <DashboardHeader />
         </div>
         <div className='dashboard-container-right-body'>
+          <UpdateRoomDetails />
         </div>
       </div>
     </div>

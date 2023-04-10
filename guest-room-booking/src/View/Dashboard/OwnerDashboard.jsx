@@ -13,10 +13,8 @@ const OwnerDashboard = () => {
       <div className='dashboard-container-right'>
         <div className='dashboard-container-right-top'>
           <DashboardHeader />
-
         </div>
         <div className='dashboard-container-right-bot'>
-
           <DisplayRoom />
         </div>
       </div>

@@ -355,22 +355,27 @@ export const apiSlice = createSlice({
         state = action.payload;
         const data = {
           id: state.id,
-          name: state.name,
-          email: state.email,
-          password: state.password,
-          phone: state.phone,
-          address: state.address
+          room: state.room,
+          description: state.description,
+          houseowner: state.houseowner,
+          beds: state.beds,
+          amount: state.amount,
+          houseno: state.houseno,
+          max: state.max,
+          min: state.min,
+          floor: state.floor,
+          amenities: state.amenities
         }
         // console.log("con",data.name, data.id)
-        axios.get(`http://127.0.0.1:3000/get-users/${data.id}`)
-        console.log(data.id)
+        axios.get(`http://127.0.0.1:3000/get-room/${data.id}`)
+        // console.log(data.id)
         if (data.id) {
           axios
-            .put(`http://127.0.0.1:3000/get-userss/${data.id}}`, data)
+            .put(`http://127.0.0.1:3000/update-room`, data)
             .then((res) => {
               console.log(res.data);
               // navigate("/");
-              window.location.href = '/display'
+              window.location.reload()
             })
             .catch((err) => {
               console.log(err);
