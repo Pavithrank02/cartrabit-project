@@ -512,6 +512,7 @@ app.put("/update-room", signupValidation, (req, res, next) => {
     })
     return res.send(response)
   })
+  //file upload
      
   app.post('/fileupload', upload.any('image'), (req, res) => {
     res.send({ message: "image added Successfully." });
