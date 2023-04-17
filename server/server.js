@@ -497,7 +497,6 @@ app.put("/update-room", signupValidation, (req, res, next) => {
   
   app.post('/profile-upload-single', upload.any('profile-file'), function (req, res, next) {
     console.log(req)
-    // req.file is the `profile-file` file
     // req.body will hold the text fields, if there were any
     console.log(JSON.stringify(req.files))
     var response = '<a href="/">Home</a><br>'
