@@ -12,7 +12,7 @@ export const filterParams = [
   {name: 'opWalls', value: false},
   {name: 'projector', value: false} ]
 
-// Initial Capacity parameters
+// Initial Capacity 
 export const capacityParams = [
   {capacity: 16, id: '16seats', value: false},
   {capacity: 18, id: '18seats', value: false},
